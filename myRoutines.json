@@ -1,0 +1,8 @@
+{
+    "rutinas" : [
+        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"}, 
+        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"}, 
+        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"}, 
+        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"} 
+    ]   
+}
