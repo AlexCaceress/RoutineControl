@@ -3,7 +3,7 @@ import json
 
 app = Flask(__name__)
 
-file = open("myRoutines.json")
+file = open("Backend/myRoutines.json")
 data = json.load(file)
 
 @app.route('/')

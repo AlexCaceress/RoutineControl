@@ -1,1 +1,38 @@
-<p>home works!</p>
+<div class="parentDiv">
+    <div class="navBar">
+        <div class="container"></div>
+        <div class="title container">ROUTINES APP</div>
+        <div class="account container">
+            <span>Àlex Càceres Hiraldo</span>
+        </div>
+    </div>
+
+    <div class="contentApp">
+
+        <div class="myRoutines">
+            <div class="bar">
+                <div class="buttonAddRoutine">+</div>
+                <span class="valignCenter">My Routines</span>
+            </div>
+
+            <div class="routinesSection">
+                <div class="routine" *ngFor="let routine of myRoutines">
+                    <div class="imgRoutine"></div>
+                    <div class="info">
+                        <div class="name">Name: {{routine.name}}</div>
+                        <div class="days">Days: {{routine.days}}</div>
+                        <div class="description">Description: {{routine.description}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="dayRoutine">
+
+        </div>
+        
+    </div>
+
+
+</div>

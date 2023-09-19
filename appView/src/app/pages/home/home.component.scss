@@ -1,0 +1,90 @@
+.parentDiv {
+    padding: 0px 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;
+}
+
+.navBar {
+    display: flex;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    height: 10%;
+
+    .container {
+        width: 33.33%;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .account {
+        text-align: end;
+    }
+}
+
+.contentApp {
+    display: flex;
+    gap: 10px;
+    height: 90%;
+}
+
+.myRoutines {
+    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    height: 100%;
+
+    .bar {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        .buttonAddRoutine {
+            background-color: grey;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding:10px;
+            border-radius: 100%;
+            width: 40px;
+            text-align: center;
+        }
+
+        .buttonAddRoutine:hover {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+}
+
+.dayRoutine{
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.valignCenter{
+    display: flex;
+    align-items: center;
+}
+
+.routine{
+    display: flex;
+    padding: 5px;
+    gap: 5px;
+
+    .imgRoutine{
+        width: 100px;
+        height: 100px;
+        background-color: rgb(168, 167, 167);
+        border-radius: 5px;
+    }
+}
+
+.routine:hover{
+    background-color: aliceblue;
+    cursor: pointer;
+}
