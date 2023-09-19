@@ -5,7 +5,7 @@ p{
 .navRoutine{
     display: flex;
     justify-content: space-between;
-    background-color: #F6F1F1;
+    background-color: #D6DBDF;
     padding: 10px;
 }
 
@@ -37,5 +37,59 @@ p{
 .configButtonRoutine{
     img{
         width: 25px;
+    }
+}
+
+.myDaysSection{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.day{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;   
+    border-radius: 5px;
+    background-color: #D6EAF8;
+
+    .navDay{
+        display: flex;
+        gap: 5px;
+
+        .editDayButton{
+            text-align: center;
+            
+            img{
+                vertical-align: bottom;
+                width: 15px;
+            }
+        }
+    
+        .editDayButton:hover{
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+
+    .addExercice{
+        width: 100px;
+        height: 150px;
+        border: 2px dashed black;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .sumIcon{
+            font-size: 25px;
+        }
+    }
+
+    .addExercice:hover{
+        cursor: pointer;
+        opacity: .5;
     }
 }

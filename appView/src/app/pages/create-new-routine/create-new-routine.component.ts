@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-create-new-routine',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class CreateNewRoutineComponent {
 
+  constructor(private api : ApiService){
+
+  }
+
+  ngOnInit(){
+    
+  }
 }
