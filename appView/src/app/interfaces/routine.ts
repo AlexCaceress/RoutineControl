@@ -4,4 +4,5 @@ export interface Routine {
     description : string,
     photo : string,
     activeRoutine : boolean,
+    data : []
 }

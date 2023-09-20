@@ -1,8 +1,20 @@
 {
-    "rutinas" : [
-        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"}, 
-        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"}, 
-        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"}, 
-        {"name" : "xd", "days" : 5, "description" : "keloke", "photo" : "img", "activeRoutine" : "false"} 
-    ]   
+    "rutinas": [
+        {
+            "name": "xd",
+            "days": 5,
+            "description": "keloke",
+            "photo": "img",
+            "activeRoutine": "false",
+            "data": []
+        },
+        {
+            "name": "Rutina2",
+            "days": 0,
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "data": []
+        }
+    ]
 }

@@ -16,7 +16,7 @@ export class HomeComponent {
   
   ngOnInit(){
     this.api.getRoutines().then( (res : any) => {
-      for(let routine of res.rutinas){
+      for(let routine of res){
         this.myRoutines.push(routine);9
       }
     })

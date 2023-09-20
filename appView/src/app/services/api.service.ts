@@ -12,12 +12,11 @@ export class ApiService {
   getRoutines(){
 
     return new Promise((resolv, reject) => {
-      let url = "http://localhost:5000/test/";
+      let url = "http://localhost:5000/getRoutines/";
 
       this.http.get(url).subscribe((res : any) => {
         resolv(res);
       })
     });
-
   }
 }
