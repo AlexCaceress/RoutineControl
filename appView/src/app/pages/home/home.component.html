@@ -11,12 +11,12 @@
 
         <div class="myRoutines">
             <div class="bar">
-                <div class="buttonAddRoutine" routerLink="createNewRoutine">+</div>
+                <div class="buttonAddRoutine" (click)="createNewRoutine()">+</div>
                 <span class="valignCenter">My Routines</span>
             </div>
 
             <div class="routinesSection">
-                <div class="routine" *ngFor="let routine of myRoutines">
+                <div class="routine" *ngFor="let routine of myRoutines" (click)="viewRoutine(routine)">
                     <div class="imgRoutine"></div>
                     <div class="info">
                         <div class="name">Name: {{routine.name}}</div>

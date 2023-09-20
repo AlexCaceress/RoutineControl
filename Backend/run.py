@@ -20,14 +20,29 @@ def createRoutine():
     objectRoutine = newRoutine.createNewRoutine()
     data["rutinas"].append(objectRoutine)
 
-    nFile = open("Backend/myRoutines.json", "w")
-    nFile.write(json.dumps(data))
-
     return objectRoutine
 
 @app.route("/getRoutines/")
 def getRoutines():
     return data["rutinas"]
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+@app.route("/routine/<nameRoutine>/", methods=['GET'])
+def getMyRoutine(nameRoutine):
+    for i in data["rutinas"]:
+        if i["name"] == nameRoutine:
+            return i
+        
+    return {}
+
+
+def dumpJSON():
+    nFile = open("Backend/myRoutines.json", "w")
+    nFile.write(json.dumps(data))
+    nFile.close()
+    print("JSON actualitzado")
+
+if __name__ == '__main__':
+    app.run(port=5000)
+    dumpJSON()
+
+

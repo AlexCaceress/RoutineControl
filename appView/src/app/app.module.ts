@@ -9,14 +9,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import { CreateNewRoutineComponent } from './pages/create-new-routine/create-new-routine.component';
+import { RoutineComponent } from './pages/routine/routine.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreateNewRoutineComponent
+    RoutineComponent
   ],
   imports: [
     BrowserModule,

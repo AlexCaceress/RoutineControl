@@ -1,15 +1,23 @@
 {
     "rutinas": [
         {
-            "name": "xd",
-            "days": 5,
-            "description": "keloke",
-            "photo": "img",
-            "activeRoutine": "false",
+            "name": "Rutina1",
+            "days": 4,
+            "description": "jjaaj",
+            "photo": "",
+            "activeRoutine": false,
             "data": []
         },
         {
             "name": "Rutina2",
+            "days": 0,
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "data": []
+        },
+        {
+            "name": "Rutina3",
             "days": 0,
             "description": "",
             "photo": "",
