@@ -10,13 +10,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { RoutineComponent } from './pages/routine/routine.component';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { SelectDaysDialogComponent } from './dialogs/select-days-dialog/select-days-dialog.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RoutineComponent
+    RoutineComponent,
+    SelectDaysDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,7 @@ import { RoutineComponent } from './pages/routine/routine.component';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
+    MatDialogModule,
 
   ],
   providers: [],

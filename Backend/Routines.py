@@ -1,11 +1,12 @@
 class Routine:
-  def __init__(self, name="", days=0, description="", photo="", activeRoutine=False, data=[]):
+
+  def __init__(self, name = "", days = {}):
     self.name = name
     self.days = days
-    self.description = description
-    self.photo = photo
-    self.activeRoutine = activeRoutine
-    self.data = data
+    self.description = ""
+    self.photo = ""
+    self.activeRoutine = False
+    self.numberDays = 0
 
   def createNewRoutine(self):
     myRoutine = {
@@ -14,7 +15,7 @@ class Routine:
         "description" : self.description, 
         "photo" : self.photo, 
         "activeRoutine" : self.activeRoutine, 
-        "data" : self.data
+        "numberDays" : len(self.days)
     } 
 
     return myRoutine

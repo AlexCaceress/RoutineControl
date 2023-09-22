@@ -1,0 +1,20 @@
+<div class="parentDiv">
+    <div class="title">
+        <h3>Select Your days for your Routine!</h3>
+    </div>
+    <div class="selectDays">
+        
+        <div class="sectionDay" *ngFor="let i of ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']" (click)="selectedDay(i)">
+            <div class="cardDay" [ngClass]="{'selectBackground': listSelectedDays.includes(i)}">
+                <p>+</p>
+            </div>
+            <p class="nameDay">{{i}}</p>
+        </div>
+        
+    </div>
+    <div class="buttonSection">
+        <div class="sumbitButton" (click)="closeDialog()">
+            SUBMIT
+        </div>
+    </div>
+</div>

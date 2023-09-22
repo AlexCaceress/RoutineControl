@@ -1,6 +1,7 @@
 from flask import Flask
 import json
 import Routines
+from flask import request
 
 app = Flask(__name__)
 
@@ -10,16 +11,28 @@ data = json.load(file)
 @app.after_request
 def apply_caching(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = '*'
+
     return response
 
 
-@app.route("/createRoutine/")
+@app.route("/createRoutine/", methods=['POST'])
 def createRoutine():
+    
+    json = request.json
+    print(json)
+    daysRoutine = json.get("days")
+    
+
+    daysObject = {}
+    for i in daysRoutine:
+        daysObject[i] = {}
+
     defaultNameRoutine = "Rutina" + str(len(data["rutinas"]) + 1)
-    newRoutine = Routines.Routine(defaultNameRoutine)
+    newRoutine = Routines.Routine(defaultNameRoutine, daysObject)
     objectRoutine = newRoutine.createNewRoutine()
     data["rutinas"].append(objectRoutine)
-
+    
     return objectRoutine
 
 @app.route("/getRoutines/")

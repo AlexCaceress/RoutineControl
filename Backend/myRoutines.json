@@ -2,27 +2,53 @@
     "rutinas": [
         {
             "name": "Rutina1",
-            "days": 4,
-            "description": "jjaaj",
+            "days": {
+                "Miercoles": {},
+                "Jueves": {},
+                "Viernes": {}
+            },
+            "description": "",
             "photo": "",
             "activeRoutine": false,
-            "data": []
+            "numberDays": 3
         },
         {
             "name": "Rutina2",
-            "days": 0,
+            "days": {
+                "Lunes": {},
+                "Martes": {},
+                "Jueves": {},
+                "Viernes": {}
+            },
             "description": "",
             "photo": "",
             "activeRoutine": false,
-            "data": []
+            "numberDays": 4
         },
         {
             "name": "Rutina3",
-            "days": 0,
+            "days": {
+                "Lunes": {},
+                "Martes": {},
+                "Miercoles": {},
+                "Jueves": {}
+            },
             "description": "",
             "photo": "",
             "activeRoutine": false,
-            "data": []
+            "numberDays": 4
+        },
+        {
+            "name": "Rutina4",
+            "days": {
+                "Sabado": {},
+                "Domingo": {},
+                "Viernes": {}
+            },
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 3
         }
     ]
 }

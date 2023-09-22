@@ -1,0 +1,57 @@
+.parentDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70vh;
+    padding: 10px;
+}
+
+.title{
+    text-align: center;
+}
+
+.selectDays{
+    display: flex;
+    justify-content: space-around;
+
+    .sectionDay{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .cardDay{
+            width: 100px;
+            height: 150px;
+            border-radius: 5px;
+            border: 2px dashed black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nameDay{
+            text-align: center;
+        }
+    }
+    
+
+}
+
+.buttonSection{
+    display: flex;
+    justify-content: end;
+    .sumbitButton{
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
+    }
+
+    .sumbitButton:hover{
+        opacity: .7;
+        cursor: pointer;
+    }
+}
+
+.selectBackground{
+    background-color: greenyellow;
+}

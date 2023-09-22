@@ -16,24 +16,23 @@ export class RoutineComponent {
   nameCreator = "";
 
   constructor(private api : ApiService, private router : Router){
-
-  }
-
-  ngOnInit(){
     let myRoutineName = this.router.url.split("/")[2];
 
     this.api.viewMyRoutine(myRoutineName).then((res: any) => {
-      if(Object.keys(res).length > 0){
+      if(Object.keys(res).length > 0 && res != "Error"){
         this.name = res.name;
         this.description = res.description;
-        this.days = res.days;
+        this.days = res.numberDays;
         this.date = "-";
         this.nameCreator = "-";
       }else{
         this.router.navigate([""])
       }
-
     })
+
+  }
+
+  ngOnInit(){
   }
 
   

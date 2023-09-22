@@ -11,7 +11,7 @@
 
         <div class="myRoutines">
             <div class="bar">
-                <div class="buttonAddRoutine" (click)="createNewRoutine()">+</div>
+                <div class="buttonAddRoutine" (click)="openDialog()">+</div>
                 <span class="valignCenter">My Routines</span>
             </div>
 
@@ -20,7 +20,7 @@
                     <div class="imgRoutine"></div>
                     <div class="info">
                         <div class="name">Name: {{routine.name}}</div>
-                        <div class="days">Days: {{routine.days}}</div>
+                        <div class="days">Days: {{routine.numberDays}}</div>
                         <div class="description">Description: {{routine.description}}</div>
                     </div>
                 </div>
