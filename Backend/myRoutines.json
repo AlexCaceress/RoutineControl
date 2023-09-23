@@ -2,49 +2,54 @@
     "rutinas": [
         {
             "name": "Rutina1",
-            "days": {
-                "Miercoles": {},
-                "Jueves": {},
-                "Viernes": {}
-            },
+            "days": [
+                {
+                    "day": "Miercoles",
+                    "data": {}
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 1
+        },
+        {
+            "name": "Rutina2",
+            "days": [
+                {
+                    "day": "Martes",
+                    "data": {}
+                },
+                {
+                    "day": "Jueves",
+                    "data": {}
+                },
+                {
+                    "day": "Domingo",
+                    "data": {}
+                }
+            ],
             "description": "",
             "photo": "",
             "activeRoutine": false,
             "numberDays": 3
         },
         {
-            "name": "Rutina2",
-            "days": {
-                "Lunes": {},
-                "Martes": {},
-                "Jueves": {},
-                "Viernes": {}
-            },
-            "description": "",
-            "photo": "",
-            "activeRoutine": false,
-            "numberDays": 4
-        },
-        {
             "name": "Rutina3",
-            "days": {
-                "Lunes": {},
-                "Martes": {},
-                "Miercoles": {},
-                "Jueves": {}
-            },
-            "description": "",
-            "photo": "",
-            "activeRoutine": false,
-            "numberDays": 4
-        },
-        {
-            "name": "Rutina4",
-            "days": {
-                "Sabado": {},
-                "Domingo": {},
-                "Viernes": {}
-            },
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": {}
+                },
+                {
+                    "day": "Sabado",
+                    "data": {}
+                },
+                {
+                    "day": "Jueves",
+                    "data": {}
+                }
+            ],
             "description": "",
             "photo": "",
             "activeRoutine": false,

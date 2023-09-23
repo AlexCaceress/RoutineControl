@@ -9,31 +9,31 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class RoutineComponent {
 
-  name = "";
-  description = "";
-  days = 0;
-  date = "";
-  nameCreator = "";
+  myRoutine: any = {}
 
-  constructor(private api : ApiService, private router : Router){
-    let myRoutineName = this.router.url.split("/")[2];
+  constructor(private api: ApiService, private router: Router) {
 
-    this.api.viewMyRoutine(myRoutineName).then((res: any) => {
-      if(Object.keys(res).length > 0 && res != "Error"){
-        this.name = res.name;
-        this.description = res.description;
-        this.days = res.numberDays;
-        this.date = "-";
-        this.nameCreator = "-";
-      }else{
-        this.router.navigate([""])
+    let nameRoutine = this.router.url.split("/")[2];
+
+    this.api.viewMyRoutine(nameRoutine).then((res: any) => {
+
+      if (Object.keys(res).length > 0 && res != "Error") {
+        
+        console.log(res)
+
+        this.myRoutine = res;
+
+      } else {
+
+        // this.router.navigate([""])
+        
       }
     })
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
-  
+
 }

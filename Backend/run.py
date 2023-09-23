@@ -22,11 +22,11 @@ def createRoutine():
     json = request.json
     print(json)
     daysRoutine = json.get("days")
+    print(daysRoutine);
     
-
-    daysObject = {}
+    daysObject = []
     for i in daysRoutine:
-        daysObject[i] = {}
+        daysObject.append({'day' : i, 'data' : {}})
 
     defaultNameRoutine = "Rutina" + str(len(data["rutinas"]) + 1)
     newRoutine = Routines.Routine(defaultNameRoutine, daysObject)

@@ -4,15 +4,15 @@
             <div class="imgSection">
 
             </div>
-            <div class="infoRoutine">
+            <div class="infoRoutine" *ngIf="myRoutine">
                 <div>
-                    <p class="name">{{name}}</p>
-                    <p>Descripción: {{description}}</p>
-                    <p>Days: {{days}}</p>
+                    <p class="name">{{myRoutine.name}}</p>
+                    <p>Descripción: {{myRoutine.description}}</p>
+                    <p>Days: {{myRoutine.numberDays}}</p>
                 </div>
                 <div>
-                    <p>{{date}}</p>
-                    <p>{{nameCreator}}</p>
+                    <p>{{myRoutine.date}}</p>
+                    <p>{{myRoutine.nameCreator}}</p>
                 </div>
             </div>
         </div>
@@ -24,9 +24,9 @@
     </div>
     
     <div class="myDaysSection">
-        <div class="day">
+        <div class="day" *ngFor="let days of myRoutine.days">
             <div class="navDay">
-                <h3 class="nameDay">LUNES</h3>
+                <h3 class="nameDay">{{days.day}}</h3>
                 <div class="editDayButton">
                     <img src="assets/edit.png" alt="">
                 </div>
