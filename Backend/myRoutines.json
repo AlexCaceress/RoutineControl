@@ -54,6 +54,31 @@
             "photo": "",
             "activeRoutine": false,
             "numberDays": 3
+        },
+        {
+            "name": "Rutina4",
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": {}
+                },
+                {
+                    "day": "Miercoles",
+                    "data": {}
+                },
+                {
+                    "day": "Jueves",
+                    "data": {}
+                },
+                {
+                    "day": "Viernes",
+                    "data": {}
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 4
         }
     ]
 }
