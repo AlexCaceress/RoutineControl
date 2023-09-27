@@ -12,6 +12,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { RoutineComponent } from './pages/routine/routine.component';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { SelectDaysDialogComponent } from './dialogs/select-days-dialog/select-days-dialog.component';
+import { TestPageComponent } from './pages/test-page/test-page.component';
+import { ExercicesDialogComponent } from './dialogs/exercices-dialog/exercices-dialog.component';
 
 
 
@@ -20,7 +22,9 @@ import { SelectDaysDialogComponent } from './dialogs/select-days-dialog/select-d
     AppComponent,
     HomeComponent,
     RoutineComponent,
-    SelectDaysDialogComponent
+    SelectDaysDialogComponent,
+    TestPageComponent,
+    ExercicesDialogComponent
   ],
   imports: [
     BrowserModule,

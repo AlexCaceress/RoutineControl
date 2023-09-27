@@ -1,0 +1,97 @@
+.parentDiv {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .section {
+        display: flex;
+        gap: 10px;
+        height: 50%;
+    }
+
+    .card {
+        width: 50%;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 30%;
+        }
+    }
+
+    .card:hover{
+        background-color: rgb(123, 211, 255);
+        cursor: pointer;
+    }
+}
+
+
+.parentDiv2 {
+    .nav {
+        margin-bottom: 15px;
+        display: flex;
+        padding: 5px;
+
+        h2 {
+            text-align: center;
+        }
+
+        .backButton {
+
+            display: flex;
+            align-items: center;
+            
+            img {
+                width: 25px;
+            }
+        }
+
+        .backButton:hover{
+            opacity: .7;
+            cursor: pointer;
+        }
+
+
+        .container {
+            width: 33.33%;
+        }
+
+
+    }
+
+    .exercicesSection {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+
+        .exercice {
+            width: 15%;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            padding: 10px;
+
+            p {
+                text-align: center;
+                font-size: 1vw;
+            }
+
+            img {
+                width: 8vw;
+            }
+        }
+
+        .exercice:hover{
+            background-color: rgb(123, 211, 255);
+            cursor: pointer;
+        }
+    }
+}

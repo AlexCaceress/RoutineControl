@@ -19,13 +19,11 @@ export class RoutineComponent {
 
       if (Object.keys(res).length > 0 && res != "Error") {
         
-        console.log(res)
-
         this.myRoutine = res;
 
       } else {
 
-        // this.router.navigate([""])
+        this.router.navigate([""])
         
       }
     })

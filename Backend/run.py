@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import *
 import json
 import Routines
 from flask import request
 
-app = Flask(__name__)
+app = Flask(__name__)  
 
 file = open("Backend/myRoutines.json")
 data = json.load(file)
@@ -15,6 +15,9 @@ def apply_caching(response):
 
     return response
 
+@app.route("/img/<image>")
+def getImage(image):
+    return send_file("./static/" + image);
 
 @app.route("/createRoutine/", methods=['POST'])
 def createRoutine():
@@ -26,7 +29,7 @@ def createRoutine():
     
     daysObject = []
     for i in daysRoutine:
-        daysObject.append({'day' : i, 'data' : {}})
+        daysObject.append({'day' : i, 'data' : []})
 
     defaultNameRoutine = "Rutina" + str(len(data["rutinas"]) + 1)
     newRoutine = Routines.Routine(defaultNameRoutine, daysObject)

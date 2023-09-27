@@ -31,11 +31,12 @@ export class HomeComponent {
     const dialogRef = this.dialog.open(SelectDaysDialogComponent, {
       width : "80vw",
       height : "70vh",
-      disableClose : true
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.createNewRoutine(result)      
+      if(result){
+        this.createNewRoutine(result)      
+      }
     });
   }
 
