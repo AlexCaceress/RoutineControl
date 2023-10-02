@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ExercicesDialogComponent } from 'src/app/dialogs/exercices-dialog/exercices-dialog.component';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class RoutineComponent {
 
   myRoutine: any = {}
 
-  constructor(private api: ApiService, private router: Router) {
+  constructor(private api: ApiService, private router: Router, public dialog: MatDialog) {
 
     let nameRoutine = this.router.url.split("/")[2];
 
@@ -30,7 +32,23 @@ export class RoutineComponent {
 
   }
 
-  ngOnInit() {
+  openDialogAddExercice(nameDay : any): void {
+    const dialogRef = this.dialog.open(ExercicesDialogComponent, {
+      width : "80vw",
+      height : "70vh",
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.updateListDaysExercice(nameDay, result);
+      }
+    });
+  }
+
+
+  updateListDaysExercice(nameDay : any, exercice : any){
+    console.log(nameDay + " " + exercice);
+    // this.api.addExerciceDay(nameDay, exercice);
   }
 
 

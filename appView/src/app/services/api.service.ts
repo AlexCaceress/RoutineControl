@@ -53,5 +53,11 @@ export class ApiService {
     })
   }
 
+  addExerciceDay(nameExercice : string, exercice : string){
+
+  }
+
+  
+
 
 }

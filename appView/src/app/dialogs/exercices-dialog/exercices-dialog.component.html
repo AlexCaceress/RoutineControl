@@ -1,18 +1,18 @@
 <div class="parentDiv" *ngIf="this.view == false">
     <div class="section">
-        <div class="chestSection card" (click)="changeView()">
+        <div class="chestSection card" (click)="changeView('chest')">
             <img src='assets/chestDayIcon.png' alt="">
         </div>
-        <div class="legSection card" (click)="changeView()">
+        <div class="legSection card" (click)="changeView('back')">
             <img src='assets/legDayIcon.png' alt="">
         </div>
     </div>
     
     <div class="section">
-        <div class="backSection card" (click)="changeView()">
+        <div class="backSection card" (click)="changeView('leg')">
             <img src='assets/backDayIcon.png' alt="">
         </div>
-        <div class="shoulderSection card" (click)="changeView()">
+        <div class="shoulderSection card" (click)="changeView('shoulders')">
             <img src='assets/shouldersDayIcon.png' alt="">
         </div>
     </div>
@@ -21,7 +21,7 @@
 <div class="parentDiv2" *ngIf="this.view">
     <div class="nav">
         <div class="container">
-            <div class="backButton" (click)="changeView()">
+            <div class="backButton" (click)="changeView('')">
                 <img src="assets/arrow.png" alt="">
             </div>
         </div>        
@@ -29,9 +29,9 @@
         <div class="container"></div>
     </div>
     <div class="exercicesSection">
-        <div class="exercice" *ngFor="let i of [1, 2, 3, 4, 5, 6, 6, 8]">
-            <img src="assets/pressBanca.png" alt="">
-            <p>Press madafaking banca</p>
+        <div class="exercice" *ngFor="let i of this.getArrayExercice()" (click)="returnNameExercice(i)">
+            <img src="{{baseImageURL}} + {{i}}" alt="">
+            <p>{{i}}</p>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ import { ExercicesDialogComponent } from './dialogs/exercices-dialog/exercices-d
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'routine/:routineID', component: RoutineComponent },
-  { path: 'test', component: ExercicesDialogComponent },
+  // { path: 'test', component: ExercicesDialogComponent },
   { path: "**", component: HomeComponent}
 
 ];
