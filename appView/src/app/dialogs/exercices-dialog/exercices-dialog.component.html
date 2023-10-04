@@ -3,13 +3,13 @@
         <div class="chestSection card" (click)="changeView('chest')">
             <img src='assets/chestDayIcon.png' alt="">
         </div>
-        <div class="legSection card" (click)="changeView('back')">
+        <div class="legSection card" (click)="changeView('leg')">
             <img src='assets/legDayIcon.png' alt="">
         </div>
     </div>
     
     <div class="section">
-        <div class="backSection card" (click)="changeView('leg')">
+        <div class="backSection card" (click)="changeView('back')">
             <img src='assets/backDayIcon.png' alt="">
         </div>
         <div class="shoulderSection card" (click)="changeView('shoulders')">
@@ -30,7 +30,7 @@
     </div>
     <div class="exercicesSection">
         <div class="exercice" *ngFor="let i of this.getArrayExercice()" (click)="returnNameExercice(i)">
-            <img src="{{baseImageURL}} + {{i}}" alt="">
+            <img src="{{baseImageURL}}{{i}}.png" alt="">
             <p>{{i}}</p>
         </div>
     </div>

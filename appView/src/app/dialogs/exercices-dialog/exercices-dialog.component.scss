@@ -1,5 +1,5 @@
 .parentDiv {
-    height: 70vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -65,9 +65,10 @@
 
     .exercicesSection {
         display: flex;
-        justify-content: center;
+        justify-content:space-evenly;
         gap: 15px;
         flex-wrap: wrap;
+        padding: 10px;
 
         .exercice {
             width: 15%;
@@ -75,7 +76,8 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: space-between;
+            align-content: center;
             align-items: center;
             padding: 10px;
 

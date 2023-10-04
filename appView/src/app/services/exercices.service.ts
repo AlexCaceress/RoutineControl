@@ -27,20 +27,22 @@ export class ExercicesService {
     "Pullover con mancuerna",
     "Push-ups (flexiones)",
     "Press de pecho con polea alta",
-    "Press de pecho con barra hexagonal"
+    "Press de pecho declinado con mancuernas",
+    "Cruce en poleas en bance inclinado",
   ]
 
   ejercicios_piernas = [
     "Sentadillas (squats)",
     "Prensa de piernas",
+    "Hack Squat",
     "Extensiones de cuádriceps",
     "Curl de piernas acostado (isquiotibiales)",
-    "Curl de piernas sentado (isquiotibiales)",
     "Zancadas con mancuernas o barra",
     "Peso muerto (deadlift)",
     "Hip Thrusts",
-    "Elevaciones de pantorrillas de pie y sentado",
-    "Step-ups"
+    "Elevaciones de pantorrillas de pie",
+    "Step-ups",
+    "Búlgaras en Multipower",
   ]
 
   ejercicios_brazos = [

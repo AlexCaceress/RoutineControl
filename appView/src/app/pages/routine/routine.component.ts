@@ -34,8 +34,8 @@ export class RoutineComponent {
 
   openDialogAddExercice(nameDay : any): void {
     const dialogRef = this.dialog.open(ExercicesDialogComponent, {
-      width : "80vw",
-      height : "70vh",
+      width : "70vw",
+      height : "85vh",
     });
 
     dialogRef.afterClosed().subscribe(result => {

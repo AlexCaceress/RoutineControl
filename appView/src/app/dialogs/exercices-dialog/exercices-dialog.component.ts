@@ -9,7 +9,7 @@ import { ExercicesService } from 'src/app/services/exercices.service';
 })
 export class ExercicesDialogComponent {
 
-  baseImageURL = "http://localhost:5000/img/"
+  baseImageURL = "assets/"
   view = false;
 
   constructor(public exercicesService : ExercicesService, public dialogRef: MatDialogRef<ExercicesDialogComponent>){}
