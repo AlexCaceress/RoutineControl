@@ -5,14 +5,13 @@ from flask import request
 
 app = Flask(__name__)  
 
-file = open("Backend/myRoutines.json")
+file = open("Backend/bdd.json")
 data = json.load(file)
 
 @app.after_request
 def apply_caching(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Headers'] = '*'
-
     return response
 
 @app.route("/img/<image>")
@@ -25,14 +24,15 @@ def createRoutine():
     json = request.json
     daysRoutine = json.get("days")
     
-    daysObject = []
+    daysObject = {}
     for i in daysRoutine:
-        daysObject.append({'day' : i, 'data' : []})
+        daysObject[i] = {"day": i, "data": []}
 
-    defaultNameRoutine = "Rutina" + str(len(data["rutinas"]) + 1)
+    defaultNameRoutine = "Rutina" + str(len(data) + 1)
+
     newRoutine = Routines.Routine(defaultNameRoutine, daysObject)
     objectRoutine = newRoutine.createNewRoutine()
-    data["rutinas"].append(objectRoutine)
+    data[objectRoutine["name"]] = objectRoutine
     
     return objectRoutine
 
@@ -44,24 +44,31 @@ def modifyRoutine():
     nameRoutine = json.get("nameRoutine")
     day = json.get("day")
     nameExercice = json.get("exercice")
-
-    # Cambiar tot el json
+    data[nameRoutine]["days"][day]["data"].append(nameExercice)
+    
+    return data[nameRoutine]
 
 @app.route("/getRoutines/")
 def getRoutines():
-    return data["rutinas"]
+    myRoutines = []
+
+    for routine in data.values():
+        myRoutines.append(routine)
+
+    return myRoutines
 
 @app.route("/routine/<nameRoutine>/", methods=['GET'])
 def getMyRoutine(nameRoutine):
-    for i in data["rutinas"]:
-        if i["name"] == nameRoutine:
-            return i
-        
-    return {}
 
+    # for i in data["rutinas"]:
+    #     if i["name"] == nameRoutine:
+    #         return i        
+    # return {}
+
+    return data[nameRoutine]
 
 def dumpJSON():
-    nFile = open("Backend/myRoutines.json", "w")
+    nFile = open("Backend/bdd.json", "w")
     nFile.write(json.dumps(data))
     nFile.close()
     print("JSON actualitzado")

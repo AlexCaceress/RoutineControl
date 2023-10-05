@@ -1,16 +1,1 @@
-{
-    "Routina1": {
-
-        "name": "Rutina1",
-        "days": [
-            {
-                "day": "Miercoles",
-                "data": []
-            }
-        ],
-        "description": "",
-        "photo": "",
-        "activeRoutine": false,
-        "numberDays": 1
-    }
-}
+{"Rutina1": {"name": "Rutina1", "days": {"Miercoles": {"day": "Miercoles", "data": ["Extensiones de cu\u00e1driceps"]}, "Jueves": {"day": "Jueves", "data": ["Press de banca", "Sentadillas (squats)", "Push-ups (flexiones)"]}}, "description": "", "photo": "", "activeRoutine": false, "numberDays": 2}, "Rutina2": {"name": "Rutina2", "days": {"Lunes": {"day": "Lunes", "data": []}, "Miercoles": {"day": "Miercoles", "data": []}, "Jueves": {"day": "Jueves", "data": ["Press de banca"]}, "Viernes": {"day": "Viernes", "data": []}}, "description": "", "photo": "", "activeRoutine": false, "numberDays": 4}}
