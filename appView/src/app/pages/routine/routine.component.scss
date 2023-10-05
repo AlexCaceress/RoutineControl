@@ -96,6 +96,11 @@ p{
         }
     }
 
+    .exerciceSection{
+        display: flex;
+        gap: 10px;
+    }
+
     .addExercice{
         width: 100px;
         height: 150px;
@@ -113,5 +118,20 @@ p{
     .addExercice:hover{
         cursor: pointer;
         opacity: .5;
+    }
+
+    .exerciceRoutine{
+        width: 100px;
+        height: 150px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        img{
+            width: 3vw;
+        }
     }
 }

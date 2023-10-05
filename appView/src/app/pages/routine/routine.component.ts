@@ -12,6 +12,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class RoutineComponent {
 
   myRoutine: any = {}
+  baseImageURL = "assets/"
+
 
   constructor(private api: ApiService, private router: Router, public dialog: MatDialog) {
 
@@ -46,9 +48,9 @@ export class RoutineComponent {
   }
 
 
-  updateListDaysExercice(nameDay : any, exercice : any){
-    console.log(nameDay + " " + exercice);
-    // this.api.addExerciceDay(nameDay, exercice);
+  async updateListDaysExercice(nameDay : any, exercice : any){
+    // let updateRoutine = await this.api.addExerciceDay(nameDay, exercice, this.myRoutine.name);
+    // this.myRoutine = updateRoutine;
   }
 
 

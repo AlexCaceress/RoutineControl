@@ -1,0 +1,16 @@
+{
+    "Routina1": {
+
+        "name": "Rutina1",
+        "days": [
+            {
+                "day": "Miercoles",
+                "data": []
+            }
+        ],
+        "description": "",
+        "photo": "",
+        "activeRoutine": false,
+        "numberDays": 1
+    }
+}

@@ -1,1 +1,143 @@
-{"rutinas": [{"name": "Rutina1", "days": [{"day": "Miercoles", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 1}, {"name": "Rutina2", "days": [{"day": "Martes", "data": []}, {"day": "Jueves", "data": []}, {"day": "Domingo", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 3}, {"name": "Rutina3", "days": [{"day": "Lunes", "data": []}, {"day": "Sabado", "data": []}, {"day": "Jueves", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 3}, {"name": "Rutina4", "days": [{"day": "Lunes", "data": []}, {"day": "Miercoles", "data": []}, {"day": "Jueves", "data": []}, {"day": "Viernes", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 4}, {"name": "Rutina5", "days": [{"day": "Lunes", "data": []}, {"day": "Martes", "data": []}, {"day": "Jueves", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 3}, {"name": "Rutina6", "days": [{"day": "Lunes", "data": []}, {"day": "Miercoles", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 2}, {"name": "Rutina7", "days": [{"day": "Lunes", "data": []}, {"day": "Miercoles", "data": []}, {"day": "Jueves", "data": []}], "description": "", "photo": "", "activeRoutine": false, "numberDays": 3}]}
+{
+    "rutinas": [
+        {
+            "name": "Rutina1",
+            "days": [
+                {
+                    "day": "Miercoles",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 1
+        },
+        {
+            "name": "Rutina2",
+            "days": [
+                {
+                    "day": "Martes",
+                    "data": []
+                },
+                {
+                    "day": "Jueves",
+                    "data": []
+                },
+                {
+                    "day": "Domingo",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 3
+        },
+        {
+            "name": "Rutina3",
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": []
+                },
+                {
+                    "day": "Sabado",
+                    "data": []
+                },
+                {
+                    "day": "Jueves",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 3
+        },
+        {
+            "name": "Rutina4",
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": []
+                },
+                {
+                    "day": "Miercoles",
+                    "data": []
+                },
+                {
+                    "day": "Jueves",
+                    "data": []
+                },
+                {
+                    "day": "Viernes",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 4
+        },
+        {
+            "name": "Rutina5",
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": []
+                },
+                {
+                    "day": "Martes",
+                    "data": []
+                },
+                {
+                    "day": "Jueves",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 3
+        },
+        {
+            "name": "Rutina6",
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": []
+                },
+                {
+                    "day": "Miercoles",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 2
+        },
+        {
+            "name": "Rutina7",
+            "days": [
+                {
+                    "day": "Lunes",
+                    "data": []
+                },
+                {
+                    "day": "Miercoles",
+                    "data": []
+                },
+                {
+                    "day": "Jueves",
+                    "data": []
+                }
+            ],
+            "description": "",
+            "photo": "",
+            "activeRoutine": false,
+            "numberDays": 3
+        }
+    ]
+}

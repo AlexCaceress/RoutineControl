@@ -23,9 +23,7 @@ def getImage(image):
 def createRoutine():
     
     json = request.json
-    print(json)
     daysRoutine = json.get("days")
-    print(daysRoutine);
     
     daysObject = []
     for i in daysRoutine:
@@ -37,6 +35,17 @@ def createRoutine():
     data["rutinas"].append(objectRoutine)
     
     return objectRoutine
+
+
+@app.route("/modifyRoutine/", methods=["POST"])
+def modifyRoutine():
+    
+    json = request.json    
+    nameRoutine = json.get("nameRoutine")
+    day = json.get("day")
+    nameExercice = json.get("exercice")
+
+    # Cambiar tot el json
 
 @app.route("/getRoutines/")
 def getRoutines():

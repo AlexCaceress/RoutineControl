@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="myDaysSection">
         <div class="day" *ngFor="let routine of myRoutine.days">
             <div class="navDay">
@@ -35,14 +35,16 @@
                         <img src="assets/play.png" alt="">
                     </div>
                 </div>
-                
             </div>
 
-            <!-- *ngFor="let exDay of routine.days.data" -->
-            <!-- {{exDay}} -->
-
-            <div class="addExercice" (click)="openDialogAddExercice(routine.day)" >
-                <p class="sumIcon">+</p>
+            <div class="exerciceSection">
+                <div class="exerciceRoutine" *ngFor="let exercice of routine.data">
+                    <img src="{{baseImageURL}}{{exercice}}.png" alt="img">
+                    <p>{{exercice}}</p>
+                </div>
+                <div class="addExercice" (click)="openDialogAddExercice(routine.day)">
+                    <p class="sumIcon">+</p>
+                </div>
             </div>
         </div>
     </div>
