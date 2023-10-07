@@ -37,10 +37,13 @@
                 </div>
             </div>
 
-            <div class="exerciceSection">
-                <div class="exerciceRoutine" *ngFor="let exercice of routine.data">
-                    <img src="{{baseImageURL}}{{exercice}}.png" alt="img">
-                    <p>{{exercice}}</p>
+            <div class="section">
+                <div class="exerciceSection" *ngFor="let exercice of routine.data">
+                    <div class="exerciceRoutine">
+                        <img src="{{baseImageURL}}{{exercice}}.png" alt="img">
+                        <p>{{exercice}}</p>
+                    </div>
+                    <p>4x12</p>
                 </div>
                 <div class="addExercice" (click)="openDialogAddExercice(routine.day)">
                     <p class="sumIcon">+</p>

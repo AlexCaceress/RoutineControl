@@ -59,12 +59,6 @@ def getRoutines():
 
 @app.route("/routine/<nameRoutine>/", methods=['GET'])
 def getMyRoutine(nameRoutine):
-
-    # for i in data["rutinas"]:
-    #     if i["name"] == nameRoutine:
-    #         return i        
-    # return {}
-
     return data[nameRoutine]
 
 def dumpJSON():

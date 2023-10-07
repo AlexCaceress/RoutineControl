@@ -30,8 +30,6 @@ export class RoutineComponent {
         for (let [key, value] of Object.entries(this.myRoutine.days)) {
           this.daysArray.push(value);
         }
-
-
       } else {
 
         this.router.navigate([""])

@@ -1,4 +1,4 @@
-<div class="parentDiv" *ngIf="this.view == false">
+<div class="selectCategoryContainer" *ngIf="this.view == false">
     <div class="section">
         <div class="chestSection card" (click)="changeView('chest')">
             <img src='assets/chestDayIcon.png' alt="">
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<div class="parentDiv2" *ngIf="this.view">
+<div class="selectExerciceContainer" *ngIf="this.view">
     <div class="nav">
         <div class="container">
             <div class="backButton" (click)="changeView('')">
@@ -35,3 +35,34 @@
         </div>
     </div>
 </div>
+
+<!-- <div class="setAndRepContainer">
+    <div class="nav">
+        <div class="container">
+            <div class="backButton">
+                <img src="assets/arrow.png" alt="">
+            </div>
+        </div>        
+        <h2>Sets and repetitions will you do?</h2>
+        <div class="container"></div>
+    </div>
+
+    <div class="exerciceSection">
+        <div class="exerciceCard">
+            <img src="assets/Press de banca inclinado.png" alt="">
+            <p>Press de banca inclinado</p>
+        </div>
+        <div class="setsSection">
+            <input class="setInput" type="text">
+            <p>x</p>
+            <input class="setInput" type="text">
+        </div>
+    </div>
+
+    <div class="buttonSection">
+        <div class="buttonFinish">
+            <p>Finish</p>
+        </div>
+    </div>
+</div> -->
+

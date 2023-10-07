@@ -1,57 +1,57 @@
-p{
+p {
     font-size: 14px;
 }
 
-.navRoutine{
+.navRoutine {
     display: flex;
     justify-content: space-between;
     background-color: #272829;
     padding: 10px;
 
-    p{
+    p {
         color: white;
     }
 }
 
-.sectionInfoRoutine{
+.sectionInfoRoutine {
     display: flex;
     gap: 10px;
 }
 
-.imgSection{
+.imgSection {
     width: 170px;
     height: 170px;
     background-color: grey;
     border-radius: 5px;
-    
+
 }
 
-.infoRoutine{
+.infoRoutine {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    .name{
+    .name {
         font-size: 4vw;
         font-weight: bold;
     }
 
 }
 
-.configButtonRoutine{
-    img{
+.configButtonRoutine {
+    img {
         width: 25px;
     }
 }
 
-.myDaysSection{
+.myDaysSection {
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 20px;
 }
 
-.day{
+.day {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -60,48 +60,50 @@ p{
     background-color: rgb(237, 237, 237);
     border-radius: 5px;
 
-    .navDay{
+    .navDay {
         display: flex;
         gap: 5px;
         justify-content: space-between;
 
-        .buttonsSection{
+        .buttonsSection {
             display: flex;
             gap: 10px;
 
-            .editDayButton{
+            .editDayButton {
                 text-align: center;
                 display: flex;
                 align-items: center;
 
-                img{
+                img {
                     vertical-align: bottom;
                     width: 20px;
                 }
             }
 
-            .playRoutineButton{
+            .playRoutineButton {
                 text-align: center;
 
-                img{
+                img {
                     vertical-align: bottom;
                     width: 25px;
                 }
             }
-            
-            .editDayButton:hover, .playRoutineButton:hover{
+
+            .editDayButton:hover,
+            .playRoutineButton:hover {
                 cursor: pointer;
                 opacity: .8;
             }
         }
     }
 
-    .exerciceSection{
+    .section {
         display: flex;
-        gap: 10px;
+        gap: 15px;
+        flex-wrap: wrap;
     }
 
-    .addExercice{
+    .addExercice {
         width: 120px;
         height: 150px;
         border: 2px dashed black;
@@ -110,33 +112,40 @@ p{
         justify-content: center;
         align-items: center;
 
-        .sumIcon{
+        .sumIcon {
             font-size: 25px;
         }
     }
 
-    .addExercice:hover{
+    .addExercice:hover {
         cursor: pointer;
         opacity: .5;
     }
 
-    .exerciceRoutine{
-        width: 120px;
+    .exerciceSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .exerciceRoutine {
+        width: 125px;
         height: 150px;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;        
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
         border-radius: 5px;
+        padding: 5px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        align-content: center;
         align-items: center;
 
-        p{
+        p {
             text-align: center;
         }
 
-        img{
-            width: 6vw;
+        img {
+            width: 80%;
         }
     }
 }

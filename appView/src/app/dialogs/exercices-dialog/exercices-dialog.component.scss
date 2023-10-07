@@ -1,8 +1,9 @@
-.parentDiv {
+.selectCategoryContainer {
     height: 85vh;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 15px;
 
     .section {
         display: flex;
@@ -30,9 +31,13 @@
 }
 
 
-.parentDiv2 {
+.selectExerciceContainer {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    
     .nav {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         display: flex;
         padding: 5px;
 
@@ -65,29 +70,27 @@
 
     .exercicesSection {
         display: flex;
-        justify-content:space-evenly;
-        gap: 15px;
+        justify-content:center;
+        gap: 20px;
         flex-wrap: wrap;
-        padding: 10px;
 
         .exercice {
-            width: 15%;
+            width: 20%;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-            border-radius: 10px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-content: center;
-            align-items: center;
             padding: 10px;
+            align-items: center;
+            justify-content: space-between;
+
 
             p {
                 text-align: center;
-                font-size: 1vw;
+                font-size: 15px;
             }
 
             img {
-                width: 8vw;
+                width: 50%;
             }
         }
 
@@ -96,4 +99,109 @@
             cursor: pointer;
         }
     }
+}
+
+.setAndRepContainer {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            text-align: center;
+        }
+
+        .backButton {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 25px;
+            }
+        }
+
+        .backButton:hover {
+            opacity: .7;
+            cursor: pointer;
+        }
+
+        .container{
+            width: 50px;
+        }
+    }
+
+    .exerciceSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .exerciceCard{
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding: 10px;
+            border-radius: 10px;
+
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+            img{
+                width: 100%;
+            }
+
+            p{
+                text-align: center;
+            }
+        }
+
+        .setsSection{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            .setInput{
+                width: 50px;
+                border-radius: 5px;
+                border: 1px solid black;
+                padding: 5px;
+                font-size: 25px;
+                text-align: center;
+            }
+
+            p{
+                font-size: 25px;
+                display: flex;
+                align-items: center;
+            }
+
+        }
+    }
+
+    .buttonSection{
+        display: flex;
+        justify-content: end;
+
+        .buttonFinish{
+            width: 80px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            border-radius: 5px;
+        }
+
+        .buttonFinish:hover {
+            opacity: .7;
+            cursor: pointer;
+        }
+    }
+
 }
