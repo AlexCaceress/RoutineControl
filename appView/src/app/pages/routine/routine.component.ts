@@ -25,11 +25,8 @@ export class RoutineComponent {
 
       if (Object.keys(res).length > 0 && res != "Error") {
 
-        this.myRoutine = res;
+        this.updateRoutine(res);
 
-        for (let [key, value] of Object.entries(this.myRoutine.days)) {
-          this.daysArray.push(value);
-        }
       } else {
 
         this.router.navigate([""])
@@ -62,8 +59,8 @@ export class RoutineComponent {
   }
 
 
-  async updateListDaysExercice(nameDay: any, exercice: any) {
-    let updateRoutine = await this.api.addExerciceDay(nameDay, exercice, this.myRoutine.name);
+  async updateListDaysExercice(nameDay: any, data : any) {
+    let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.myRoutine.name);
     this.updateRoutine(updateRoutine)
   }
 

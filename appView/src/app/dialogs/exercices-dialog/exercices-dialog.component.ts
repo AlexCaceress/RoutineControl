@@ -10,37 +10,57 @@ import { ExercicesService } from 'src/app/services/exercices.service';
 export class ExercicesDialogComponent {
 
   baseImageURL = "assets/"
-  view = false;
+  categoriSelected = false;
+  exerciceSelected = false;
 
-  constructor(public exercicesService : ExercicesService, public dialogRef: MatDialogRef<ExercicesDialogComponent>){}
+  exerciceCategory: string = "";
+  nameExercice : string = "";
 
-  dayName : string = "";
+  repsNumber : number = 0;
+  setsNumber : number = 0;
 
-  changeView(day : string){
-    this.dayName = day;
-    this.view = this.view ? false : true;
+  constructor(public exercicesService: ExercicesService, public dialogRef: MatDialogRef<ExercicesDialogComponent>) { }
+
+  showExercicesPage(exerciceCategory: string) {
+
+    this.exerciceCategory = exerciceCategory;
+    this.categoriSelected = this.categoriSelected ? false : true;
+
   }
 
-  getArrayExercice() : any {
+  showSetsPage(nameExercice : string){
 
-    if(this.dayName == "chest"){
+    this.nameExercice = nameExercice;
+    this.exerciceSelected = this.exerciceSelected ? false : true;
+
+    if(this.exerciceSelected == false){
+      this.repsNumber = 0;
+      this.setsNumber = 0;
+    }
+
+  }
+
+  getArrayExercice(): any {
+
+    if (this.exerciceCategory == "chest") {
       return this.exercicesService.getChestExercices();
     }
-    else if(this.dayName == "back"){
+    else if (this.exerciceCategory == "back") {
       return this.exercicesService.getBackExercices();
     }
-    else if(this.dayName == "leg"){
+    else if (this.exerciceCategory == "leg") {
       return this.exercicesService.getLegExercices();
     }
-    else if(this.dayName == "shoulders"){
+    else if (this.exerciceCategory == "shoulders") {
       return this.exercicesService.getShouldersExercices();
     }
-    
+
     return []
 
   }
 
-  returnNameExercice(name : string){
-    this.dialogRef.close(name);
+  returnNameExercice() {
+    let dataReturn = {reps : this.repsNumber, sets : this.setsNumber, nameExercice : this.nameExercice};
+    this.dialogRef.close(dataReturn);
   }
 }

@@ -53,10 +53,10 @@ export class ApiService {
     })
   }
 
-  addExerciceDay(day: string, exercice: string, nameRoutine: string) {
+  addExerciceDay(day: string, dataExercice: string, nameRoutine: string) {
 
     return new Promise((resolv, reject) => {
-      this.http.post(this.baseURL + "modifyRoutine/", {nameRoutine : nameRoutine, day : day, exercice : exercice}).subscribe((res) => {
+      this.http.post(this.baseURL + "modifyRoutine/", {nameRoutine : nameRoutine, day : day, dataExercice : dataExercice}).subscribe((res) => {
         resolv(res);
       })
     })

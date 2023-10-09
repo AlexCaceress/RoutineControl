@@ -14,6 +14,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angula
 import { SelectDaysDialogComponent } from './dialogs/select-days-dialog/select-days-dialog.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
 import { ExercicesDialogComponent } from './dialogs/exercices-dialog/exercices-dialog.component';
+import {FormsModule} from "@angular/forms"
 
 
 
@@ -35,6 +36,7 @@ import { ExercicesDialogComponent } from './dialogs/exercices-dialog/exercices-d
     MatDividerModule,
     MatButtonModule,
     MatDialogModule,
+    FormsModule,
 
   ],
   providers: [],

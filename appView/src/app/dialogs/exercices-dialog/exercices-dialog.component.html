@@ -1,27 +1,27 @@
-<div class="selectCategoryContainer" *ngIf="this.view == false">
+<div class="selectCategoryContainer" *ngIf="this.categoriSelected == false">
     <div class="section">
-        <div class="chestSection card" (click)="changeView('chest')">
+        <div class="chestSection card" (click)="showExercicesPage('chest')">
             <img src='assets/chestDayIcon.png' alt="">
         </div>
-        <div class="legSection card" (click)="changeView('leg')">
+        <div class="legSection card" (click)="showExercicesPage('leg')">
             <img src='assets/legDayIcon.png' alt="">
         </div>
     </div>
     
     <div class="section">
-        <div class="backSection card" (click)="changeView('back')">
+        <div class="backSection card" (click)="showExercicesPage('back')">
             <img src='assets/backDayIcon.png' alt="">
         </div>
-        <div class="shoulderSection card" (click)="changeView('shoulders')">
+        <div class="shoulderSection card" (click)="showExercicesPage('shoulders')">
             <img src='assets/shouldersDayIcon.png' alt="">
         </div>
     </div>
 </div>
 
-<div class="selectExerciceContainer" *ngIf="this.view">
+<div class="selectExerciceContainer" *ngIf="this.categoriSelected && this.exerciceSelected == false">
     <div class="nav">
         <div class="container">
-            <div class="backButton" (click)="changeView('')">
+            <div class="backButton" (click)="showExercicesPage('')">
                 <img src="assets/arrow.png" alt="">
             </div>
         </div>        
@@ -29,17 +29,17 @@
         <div class="container"></div>
     </div>
     <div class="exercicesSection">
-        <div class="exercice" *ngFor="let i of this.getArrayExercice()" (click)="returnNameExercice(i)">
+        <div class="exercice" *ngFor="let i of this.getArrayExercice()" (click)="showSetsPage(i)">
             <img src="{{baseImageURL}}{{i}}.png" alt="">
             <p>{{i}}</p>
         </div>
     </div>
 </div>
 
-<!-- <div class="setAndRepContainer">
+<div class="setAndRepContainer" *ngIf="this.categoriSelected && this.exerciceSelected">
     <div class="nav">
         <div class="container">
-            <div class="backButton">
+            <div class="backButton" (click)="showSetsPage('')">
                 <img src="assets/arrow.png" alt="">
             </div>
         </div>        
@@ -49,20 +49,20 @@
 
     <div class="exerciceSection">
         <div class="exerciceCard">
-            <img src="assets/Press de banca inclinado.png" alt="">
+            <img src="{{baseImageURL}}{{nameExercice}}.png" alt="">
             <p>Press de banca inclinado</p>
         </div>
         <div class="setsSection">
-            <input class="setInput" type="text">
+            <input [(ngModel)]="setsNumber" class="setInput" type="text">
             <p>x</p>
-            <input class="setInput" type="text">
+            <input [(ngModel)]="repsNumber" class="setInput" type="text">
         </div>
     </div>
 
     <div class="buttonSection">
-        <div class="buttonFinish">
+        <div class="buttonFinish" (click)="returnNameExercice()" >
             <p>Finish</p>
         </div>
     </div>
-</div> -->
+</div>
 
