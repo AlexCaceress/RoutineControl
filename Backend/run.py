@@ -26,7 +26,7 @@ def createRoutine():
     
     daysObject = {}
     for i in daysRoutine:
-        daysObject[i] = {"day": i, "data": {}}
+        daysObject[i] = {"day": i, "data": []}
 
     defaultNameRoutine = "Rutina" + str(len(data) + 1)
 
@@ -47,8 +47,8 @@ def modifyRoutine():
     sets = json.get("dataExercice")["sets"]
     nameExercice = json.get("dataExercice")["nameExercice"]
 
-    data[nameRoutine]["days"][day]["data"][nameExercice] = "{}x{}".format(sets, reps)  
-    
+    data[nameRoutine]["days"][day]["data"].append({"nameExercice" : nameExercice, "sets" : sets, "reps" : reps})
+        
     return data[nameRoutine]
 
 @app.route("/getRoutines/")

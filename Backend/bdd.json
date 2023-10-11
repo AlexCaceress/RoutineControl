@@ -4,18 +4,71 @@
         "days": {
             "Lunes": {
                 "day": "Lunes",
-                "data": {
-                    "Press de banca inclinado": "4x12",
-                    "Press de banca": "3x2"
-                }
-            },
-            "Martes": {
-                "day": "Martes",
-                "data": {}
+                "data": [
+                    {
+                        "nameExercice": "Press de banca inclinado",
+                        "sets": "3",
+                        "reps": "2"
+                    },
+                    {
+                        "nameExercice": "Press de banca",
+                        "sets": "3",
+                        "reps": "10"
+                    }
+                ]
+            }
+        },
+        "description": "",
+        "photo": "",
+        "activeRoutine": false,
+        "numberDays": 1
+    },
+    "Rutina2": {
+        "name": "Rutina2",
+        "days": {
+            "Lunes": {
+                "day": "Lunes",
+                "data": []
             },
             "Miercoles": {
                 "day": "Miercoles",
-                "data": {}
+                "data": []
+            },
+            "Jueves": {
+                "day": "Jueves",
+                "data": []
+            }
+        },
+        "description": "",
+        "photo": "",
+        "activeRoutine": false,
+        "numberDays": 3
+    },
+    "Rutina3": {
+        "name": "Rutina3",
+        "days": {
+            "Lunes": {
+                "day": "Lunes",
+                "data": [
+                    {
+                        "nameExercice": "Press de banca inclinado",
+                        "sets": "3",
+                        "reps": "10"
+                    },
+                    {
+                        "nameExercice": "Press de banca declinado",
+                        "sets": "4",
+                        "reps": "10"
+                    }
+                ]
+            },
+            "Martes": {
+                "day": "Martes",
+                "data": []
+            },
+            "Miercoles": {
+                "day": "Miercoles",
+                "data": []
             }
         },
         "description": "",

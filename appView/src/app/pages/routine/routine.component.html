@@ -38,12 +38,12 @@
             </div>
 
             <div class="section">
-                <div class="exerciceSection" *ngFor="let exercice of routine.data | keyvalue">
-                    <div class="exerciceRoutine">
-                        <img src="{{baseImageURL}}{{exercice.key}}.png" alt="img">
-                        <p>{{exercice.key}}</p>
+                <div class="exerciceSection" *ngFor="let exercice of routine.data">
+                    <div class="exerciceRoutine" >
+                        <img src="{{baseImageURL}}{{exercice.nameExercice}}.png" alt="img">
+                        <p>{{exercice.nameExercice}}</p>
                     </div>
-                    <p>{{exercice.value}}</p>
+                    <p>{{exercice.sets + "x" + exercice.reps}}</p>
                 </div>
                 <div class="addExercice" (click)="openDialogAddExercice(routine.day)">
                     <p class="sumIcon">+</p>
