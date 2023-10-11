@@ -53,9 +53,9 @@
             <p>Press de banca inclinado</p>
         </div>
         <div class="setsSection">
-            <input [(ngModel)]="setsNumber" class="setInput" type="text">
+            <input [(ngModel)]="setsNumber" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" class="setInput" type="text" placeholder="0">
             <p>x</p>
-            <input [(ngModel)]="repsNumber" class="setInput" type="text">
+            <input [(ngModel)]="repsNumber" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" class="setInput" type="text" placeholder="0">
         </div>
     </div>
 

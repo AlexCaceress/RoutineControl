@@ -16,8 +16,8 @@ export class ExercicesDialogComponent {
   exerciceCategory: string = "";
   nameExercice : string = "";
 
-  repsNumber : number = 0;
-  setsNumber : number = 0;
+  repsNumber : string = "";
+  setsNumber : string = "";
 
   constructor(public exercicesService: ExercicesService, public dialogRef: MatDialogRef<ExercicesDialogComponent>) { }
 
@@ -34,8 +34,8 @@ export class ExercicesDialogComponent {
     this.exerciceSelected = this.exerciceSelected ? false : true;
 
     if(this.exerciceSelected == false){
-      this.repsNumber = 0;
-      this.setsNumber = 0;
+      this.repsNumber = "";
+      this.setsNumber = "";
     }
 
   }

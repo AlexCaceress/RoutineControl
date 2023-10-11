@@ -75,17 +75,17 @@
 .routine{
     display: flex;
     padding: 5px;
-    gap: 5px;
+    gap: 10px;
 
     .imgRoutine{
         width: 100px;
         height: 100px;
-        background-color: rgb(168, 167, 167);
-        border-radius: 5px;
+        background-color: rgb(172, 203, 255);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 }
 
 .routine:hover{
-    background-color: aliceblue;
+    background-color: rgb(231, 231, 231);
     cursor: pointer;
 }
