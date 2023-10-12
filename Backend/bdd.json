@@ -1,1 +1,63 @@
-{"Rutina1": {"name": "Rutina1", "days": {"Lunes": {"day": "Lunes", "data": [{"nameExercice": "Press de banca inclinado", "sets": "2", "reps": "10"}]}, "Martes": {"day": "Martes", "data": []}, "Miercoles": {"day": "Miercoles", "data": []}}, "description": "", "photo": "", "activeRoutine": false, "numberDays": 3, "dateCreateRoutine": "12/10/2023"}}
+{
+    "Rutina1": {
+        "name": "Rutina1",
+        "days": {
+            "Lunes": {
+                "day": "Lunes",
+                "data": [
+                    {
+                        "nameExercice": "Press de banca inclinado",
+                        "sets": "2",
+                        "reps": "10"
+                    },
+                    {
+                        "nameExercice": "Extensiones de cu\u00e1driceps",
+                        "sets": "3",
+                        "reps": "10"
+                    }
+                ]
+            },
+            "Martes": {
+                "day": "Martes",
+                "data": []
+            },
+            "Miercoles": {
+                "day": "Miercoles",
+                "data": []
+            }
+        },
+        "description": "",
+        "photo": "",
+        "activeRoutine": false,
+        "numberDays": 3,
+        "dateCreateRoutine": "12/10/2023"
+    },
+    "Rutina2": {
+        "name": "Rutina2",
+        "days": {
+            "Lunes": {
+                "day": "Lunes",
+                "data": [
+                    {
+                        "nameExercice": "Fondos en m\u00e1quina",
+                        "sets": "3",
+                        "reps": "10"
+                    }
+                ]
+            },
+            "Martes": {
+                "day": "Martes",
+                "data": []
+            },
+            "Miercoles": {
+                "day": "Miercoles",
+                "data": []
+            }
+        },
+        "description": "",
+        "photo": "",
+        "activeRoutine": false,
+        "numberDays": 3,
+        "dateCreateRoutine": "12/10/2023"
+    }
+}
