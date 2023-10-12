@@ -44,6 +44,11 @@ p {
     }
 }
 
+.configButtonRoutine:hover{
+    cursor: pointer;
+    opacity: .7;
+}
+
 .myDaysSection {
     display: flex;
     flex-direction: column;

@@ -2,6 +2,7 @@ from flask import *
 import json
 import Routines
 from flask import request
+from datetime import date
 
 app = Flask(__name__)  
 
@@ -24,13 +25,14 @@ def createRoutine():
     json = request.json
     daysRoutine = json.get("days")
     
+    defaultNameRoutine = "Rutina" + str(len(data) + 1)
+    today = date.today().strftime("%d/%m/%Y")
     daysObject = {}
+
     for i in daysRoutine:
         daysObject[i] = {"day": i, "data": []}
 
-    defaultNameRoutine = "Rutina" + str(len(data) + 1)
-
-    newRoutine = Routines.Routine(defaultNameRoutine, daysObject)
+    newRoutine = Routines.Routine(defaultNameRoutine, daysObject, today)
     objectRoutine = newRoutine.createNewRoutine()
     data[objectRoutine["name"]] = objectRoutine
     
