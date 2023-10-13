@@ -39,7 +39,7 @@ def createRoutine():
     return objectRoutine
 
 
-@app.route("/modifyRoutine/", methods=["POST"])
+@app.route("/modifyRoutine/", methods=["POST", "GET"])
 def modifyRoutine():
     
     json = request.json    
@@ -52,6 +52,22 @@ def modifyRoutine():
     data[nameRoutine]["days"][day]["data"].append({"nameExercice" : nameExercice, "sets" : sets, "reps" : reps})
         
     return data[nameRoutine]
+
+@app.route("/changeConfigRoutine/", methods=["POST", "GET"])
+def changeConfig():
+
+    json = request.json
+    oldNameRoutine = json.get("nameRoutine")
+    newConfigRoutine = json.get("newConfigRoutine")
+
+    data[oldNameRoutine]["name"] = newConfigRoutine["nameRoutine"]
+    data[oldNameRoutine]["description"] = newConfigRoutine["descritpionRoutine"]
+    data[oldNameRoutine]["photo"] = newConfigRoutine["imageRoutine"]
+
+    data[newConfigRoutine["nameRoutine"]] = data.pop(oldNameRoutine, None)
+
+    return data[newConfigRoutine["nameRoutine"]]
+    
 
 @app.route("/getRoutines/")
 def getRoutines():

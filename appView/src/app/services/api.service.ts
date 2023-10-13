@@ -63,6 +63,16 @@ export class ApiService {
 
   }
 
+  changeConfigRoutine(nameRoutine : string, newConfigRoutine : any){
+
+    return new Promise((resolv, reject) => {
+      this.http.post(this.baseURL + "changeConfigRoutine/", {nameRoutine : nameRoutine, newConfigRoutine : newConfigRoutine}).subscribe((res) => {
+        resolv(res);
+      })
+    })
+    
+  }
+
 
 
 

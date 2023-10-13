@@ -42,6 +42,38 @@ export class RoutineComponent {
     }
   }
 
+
+  async updateListDaysExercice(nameDay: any, data: any) {
+    let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.myRoutine.name);
+    this.updateRoutine(updateRoutine)
+  }
+
+  async updateConfigRoutine(newConfigRoutine: any) {
+    let updateRoutine = await this.api.changeConfigRoutine(this.myRoutine.name, newConfigRoutine);
+    this.updateRoutine(updateRoutine)
+
+  }
+
+
+  //DIALOGS
+  
+  openDialogConfigRoutine() {
+    const dialogRef = this.dialog.open(SettingsRoutineDialogComponent, {
+      width: "600px",
+      height: "350px",
+      data: {
+        "nameRoutine": this.myRoutine.name,
+        "descriptionRoutine": this.myRoutine.description
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.updateConfigRoutine(result);
+      }
+    });
+  }
+
   openDialogAddExercice(nameDay: any): void {
     const dialogRef = this.dialog.open(ExercicesDialogComponent, {
       width: "70vw",
@@ -55,21 +87,5 @@ export class RoutineComponent {
     });
   }
 
-  async updateListDaysExercice(nameDay: any, data : any) {
-    let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.myRoutine.name);
-    this.updateRoutine(updateRoutine)
-  }
 
-  openDialogConfigRoutine(){
-    const dialogRef = this.dialog.open(SettingsRoutineDialogComponent, {
-      width: "600px",
-      height: "350px",
-    });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.updateListDaysExercice(nameDay, result);
-    //   }
-    // });
-  }
 }

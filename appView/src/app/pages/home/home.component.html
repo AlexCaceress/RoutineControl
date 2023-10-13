@@ -17,7 +17,7 @@
 
             <div class="routinesSection">
                 <div class="routine" *ngFor="let routine of myRoutines" (click)="viewRoutine(routine)">
-                    <div class="imgRoutine"></div>
+                    <div class="imgRoutine" [style.background-image]="'url(' + routine.photo  + ')'"></div>
                     <div class="info">
                         <div class="name">Name: {{routine.name}}</div>
                         <div class="days">Days: {{routine.numberDays}}</div>

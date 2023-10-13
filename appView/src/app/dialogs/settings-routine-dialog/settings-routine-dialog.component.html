@@ -4,25 +4,28 @@
     </div>
     <div class="section">
         <div class="imageSection">
-            <div class="imageDiv">
-                
+            <div class="imageDiv" [style.background-image]="'url(' + backgroundImage  + ')'" (mouseover)="moseOverImageDiv()"
+                (mouseleave)="moseLeaveImageDiv()">
+                <input *ngIf="touchingImageSection" #imageInput type="file" accept="image/*"
+                    (change)="processFile(imageInput)">
             </div>
         </div>
         <div class="inputsSection">
             <div class="inpSec">
                 <p>Name routine</p>
-                <input class="inputs" type="text">
+                <input [(ngModel)]="nameRoutine" class="inputs" type="text">
             </div>
 
             <div class="textSec">
                 <p>Description</p>
-                <input class="textArea inputs" type="text">
+                <textarea [(ngModel)]="descritpionRoutine" class="textArea inputs" type="text"></textarea>
             </div>
         </div>
     </div>
+
     <div class="buttonSection">
-            <div class="sendButton">
-                <p>SEND</p>
-            </div>
+        <div class="sendButton" (click)="sendInfo()">
+            <p>SEND</p>
         </div>
+    </div>
 </div>
