@@ -1,7 +1,8 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ExercicesDialogComponent } from 'src/app/dialogs/exercices-dialog/exercices-dialog.component';
+import { SettingsRoutineDialogComponent } from 'src/app/dialogs/settings-routine-dialog/settings-routine-dialog.component';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -16,10 +17,9 @@ export class RoutineComponent {
 
   baseImageURL = "assets/"
 
+  constructor(private api: ApiService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute) {
 
-  constructor(private api: ApiService, private router: Router, public dialog: MatDialog) {
-
-    let nameRoutine = this.router.url.split("/")[2];
+    let nameRoutine = this.route.snapshot.params['routineID'];
 
     this.api.viewMyRoutine(nameRoutine).then((res: any) => {
 
@@ -28,12 +28,9 @@ export class RoutineComponent {
         this.updateRoutine(res);
 
       } else {
-
         this.router.navigate([""])
-
       }
     })
-
   }
 
   updateRoutine(newRoutine: any) {
@@ -58,11 +55,21 @@ export class RoutineComponent {
     });
   }
 
-
   async updateListDaysExercice(nameDay: any, data : any) {
     let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.myRoutine.name);
     this.updateRoutine(updateRoutine)
   }
 
+  openDialogConfigRoutine(){
+    const dialogRef = this.dialog.open(SettingsRoutineDialogComponent, {
+      width: "600px",
+      height: "350px",
+    });
 
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (result) {
+    //     this.updateListDaysExercice(nameDay, result);
+    //   }
+    // });
+  }
 }

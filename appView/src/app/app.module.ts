@@ -15,7 +15,9 @@ import { SelectDaysDialogComponent } from './dialogs/select-days-dialog/select-d
 import { TestPageComponent } from './pages/test-page/test-page.component';
 import { ExercicesDialogComponent } from './dialogs/exercices-dialog/exercices-dialog.component';
 import {FormsModule} from "@angular/forms";
-import { SubRouteTestPageComponent } from './pages/sub-route-test-page/sub-route-test-page.component'
+import { SubRouteTestPageComponent } from './pages/sub-route-test-page/sub-route-test-page.component';
+import { DayRoutineSettingsComponent } from './pages/day-routine-settings/day-routine-settings.component';
+import { SettingsRoutineDialogComponent } from './dialogs/settings-routine-dialog/settings-routine-dialog.component'
 
 
 
@@ -27,7 +29,9 @@ import { SubRouteTestPageComponent } from './pages/sub-route-test-page/sub-route
     SelectDaysDialogComponent,
     TestPageComponent,
     ExercicesDialogComponent,
-    SubRouteTestPageComponent
+    SubRouteTestPageComponent,
+    DayRoutineSettingsComponent,
+    SettingsRoutineDialogComponent
   ],
   imports: [
     BrowserModule,

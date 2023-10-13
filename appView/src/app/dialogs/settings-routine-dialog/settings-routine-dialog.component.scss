@@ -1,0 +1,55 @@
+.parentDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+
+    .title{
+        text-align: center;
+    }
+
+    .section{
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+
+        .imageSection{
+
+            .imageDiv{
+                width: 170px;
+                height: 170px;
+                background-color: gray;
+            }
+        }
+
+        .inputsSection{
+            display: flex;
+            flex-direction: column;
+
+            .inputSection{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .inputs{
+                width: 250px;
+                background: rgb(215, 215, 215);
+                border-radius: 5px;            
+                padding: 10px;
+                font-size: 15px;
+            }
+            
+            .textArea{
+                width: 100%;
+                height: 100%; 
+                box-sizing: border-box;
+                resize: none;
+                font-family: "Calibri";
+                font-size: 15px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
