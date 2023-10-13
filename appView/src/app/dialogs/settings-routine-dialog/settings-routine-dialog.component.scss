@@ -1,55 +1,83 @@
-.parentDiv{
+.parentDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  height: 350px;
+
+  .title {
+    text-align: center;
+  }
+
+  .section {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
+    gap: 15px;
+    justify-content: center;
 
-    .title{
-        text-align: center;
+    .imageSection {
+      justify-content: center;
+      display: flex;
+
+      .imageDiv {
+        width: 180px;
+        height: 180px;
+        background-color: gray;
+      }
     }
 
-    .section{
+    .inputsSection {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 50%;
+
+      .inpSec {
         display: flex;
-        gap: 25px;
-        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
 
-        .imageSection{
+      .inputs {
+        width: 100%;
+        background: rgb(240, 240, 240);
+        padding: 10px;
+        font-size: 15px;
+      }
 
-            .imageDiv{
-                width: 170px;
-                height: 170px;
-                background-color: gray;
-            }
+      .textSec {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .textArea {
+          height: 100%;
+          resize: none;
+          box-sizing: border-box;
+          font-family: "Calibri";
+          font-size: 15px;
+          padding: 10px;
         }
 
-        .inputsSection{
-            display: flex;
-            flex-direction: column;
-
-            .inputSection{
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .inputs{
-                width: 250px;
-                background: rgb(215, 215, 215);
-                border-radius: 5px;            
-                padding: 10px;
-                font-size: 15px;
-            }
-            
-            .textArea{
-                width: 100%;
-                height: 100%; 
-                box-sizing: border-box;
-                resize: none;
-                font-family: "Calibri";
-                font-size: 15px;
-                padding: 10px;
-            }
-        }
+      }
     }
-}
+  }
 
+  .buttonSection {
+    display: flex;
+    justify-content: end;
+
+    .sendButton {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      width: 80px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      border-radius: 5px;
+    }
+  }
+}
