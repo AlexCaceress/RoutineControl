@@ -6,7 +6,8 @@
         
         <div class="sectionDay" *ngFor="let i of ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']" (click)="selectedDay(i)">
             <div class="cardDay" [ngClass]="{'selectBackground': listSelectedDays.includes(i)}">
-                <p>+</p>
+                <p *ngIf="listSelectedDays.includes(i) == false">+</p>
+                <img class="imgTick" *ngIf="listSelectedDays.includes(i)" src="assets/tick.png" alt="">
             </div>
             <p class="nameDay">{{i}}</p>
         </div>

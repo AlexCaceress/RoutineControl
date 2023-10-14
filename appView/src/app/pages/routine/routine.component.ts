@@ -63,7 +63,8 @@ export class RoutineComponent {
       height: "350px",
       data: {
         "nameRoutine": this.myRoutine.name,
-        "descriptionRoutine": this.myRoutine.description
+        "descriptionRoutine": this.myRoutine.description,
+        "imageRoutine" : this.myRoutine.photo
       }
     });
 

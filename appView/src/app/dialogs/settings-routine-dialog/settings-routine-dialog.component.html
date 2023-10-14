@@ -6,7 +6,12 @@
         <div class="imageSection">
             <div class="imageDiv" [style.background-image]="'url(' + backgroundImage  + ')'" (mouseover)="moseOverImageDiv()"
                 (mouseleave)="moseLeaveImageDiv()">
-                <input *ngIf="touchingImageSection" #imageInput type="file" accept="image/*"
+                
+                <label class="uploadImage" *ngIf="touchingImageSection" for="inputFile">
+                    <img src="assets/edit.png" alt="">
+                </label>
+
+                <input style="display: none; visibility: none;" id="inputFile" #imageInput type="file" accept="image/*"
                     (change)="processFile(imageInput)">
             </div>
         </div>

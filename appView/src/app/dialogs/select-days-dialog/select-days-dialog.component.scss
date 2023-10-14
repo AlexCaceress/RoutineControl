@@ -17,16 +17,25 @@
     .sectionDay{
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
 
         .cardDay{
             width: 100px;
             height: 150px;
-            border-radius: 5px;
             border: 2px dashed black;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+            .imgTick{
+                width: 30%;
+            }
+        }
+
+        .cardDay:hover{
+            cursor: pointer;
+            opacity: .6;
         }
 
         .nameDay{
@@ -53,5 +62,5 @@
 }
 
 .selectBackground{
-    background-color: greenyellow;
+    background-color: rgb(116, 235, 95);
 }

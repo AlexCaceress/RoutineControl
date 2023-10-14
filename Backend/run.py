@@ -68,7 +68,7 @@ def changeConfig():
     json = request.json
     oldNameRoutine = json.get("nameRoutine")
     newConfigRoutine = json.get("newConfigRoutine")
-
+    
     data[oldNameRoutine]["name"] = newConfigRoutine["nameRoutine"]
     data[oldNameRoutine]["description"] = newConfigRoutine["descritpionRoutine"]
     data[oldNameRoutine]["photo"] = newConfigRoutine["imageRoutine"]

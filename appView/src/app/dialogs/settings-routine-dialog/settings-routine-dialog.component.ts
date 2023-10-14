@@ -8,14 +8,19 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class SettingsRoutineDialogComponent {
 
+  nameRoutine : any;
+  descritpionRoutine : any;
+  backgroundImage : any;
+  touchingImageSection : boolean = false;
+
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SettingsRoutineDialogComponent>){
+
+    this.nameRoutine = data.nameRoutine;
+    this.descritpionRoutine = data.descriptionRoutine;
+    this.backgroundImage = data.imageRoutine;
     
   }
-
-  nameRoutine : any = this.data.nameRoutine;
-  descritpionRoutine : any = this.data.descriptionRoutine;
-  touchingImageSection : boolean = false;
-  backgroundImage : any = "";
 
   sendInfo(){
     let data = {"nameRoutine" : this.nameRoutine, "descritpionRoutine" : this.descritpionRoutine, "imageRoutine" : this.backgroundImage}
