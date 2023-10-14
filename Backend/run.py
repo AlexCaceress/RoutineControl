@@ -9,6 +9,12 @@ app = Flask(__name__)
 file = open("Backend/bdd.json")
 data = json.load(file)
 
+# data = json.load(open("Backend/bdd.json"))
+# imagesbdd = json.load(open("Backend/imagesBdd.json"))
+
+# for i in imagesbdd:
+#     data[i.nameRoutine]["photo"] = i.photo
+
 @app.after_request
 def apply_caching(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
