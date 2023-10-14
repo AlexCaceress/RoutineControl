@@ -1,22 +1,24 @@
 import json
 
-bddData = json.load(open("Backend/bdd.json"))
-bddPhotos = json.load(open("Backend/imagesBdd.json"))
+file1 = open("Backend/bdd.json")
+bddData = json.load(file1)
+file1.close()
 
-bddPhotosAdd = []
+bddPhotosAdd = {
+    "images" : []
+}
 
 for i in bddData.values():
-    if(i.photo != ""):
-        bddPhotos.append({"nameRoutine" : i.name, "photo" : i.photo})
-        bddData[i.name]["photo"] = ""
+    if(i["photo"] != ""):
+        bddPhotosAdd["images"].append({"nameRoutine" : i["name"], "photo" : i["photo"]})
+        bddData[i["name"]]["photo"] = ""
 
+nFile1 = open("Backend/bdd.json", "w")
+nFile1.write(json.dumps(bddData))
+nFile1.close()
 
-nFile = open("Backend/imagesBdd.json", "w")
-nFile.write(json.dumps(bddPhotosAdd))
-nFile.close()
-
-nFile2 = open("Backend/bdd.json", "w")
-nFile2.write(json.dumps(bddData))
+nFile2 = open("Backend/imagesBdd.json", "w")
+nFile2.write(json.dumps(bddPhotosAdd))
 nFile2.close()
 
 print("JSONS actualitzados")

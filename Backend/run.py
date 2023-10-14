@@ -6,14 +6,17 @@ from datetime import date
 
 app = Flask(__name__)  
 
-file = open("Backend/bdd.json")
-data = json.load(file)
+bddFile = open("Backend/bdd.json")
+data = json.load(bddFile)
 
-# data = json.load(open("Backend/bdd.json"))
-# imagesbdd = json.load(open("Backend/imagesBdd.json"))
+bddImagesFile = open("Backend/imagesBdd.json")
+bddPhotos = json.load(bddImagesFile)
 
-# for i in imagesbdd:
-#     data[i.nameRoutine]["photo"] = i.photo
+bddFile.close()
+bddImagesFile.close()
+
+for i in bddPhotos["images"]:
+    data[i["nameRoutine"]]["photo"] = i["photo"]
 
 @app.after_request
 def apply_caching(response):
@@ -89,10 +92,25 @@ def getMyRoutine(nameRoutine):
     return data[nameRoutine]
 
 def dumpJSON():
-    nFile = open("Backend/bdd.json", "w")
-    nFile.write(json.dumps(data))
-    nFile.close()
-    print("JSON actualitzado")
+
+    bddPhotosAdd = {
+        "images" : []
+    }
+
+    for i in data.values():
+        if(i["photo"] != ""):
+            bddPhotosAdd["images"].append({"nameRoutine" : i["name"], "photo" : i["photo"]})
+            data[i["name"]]["photo"] = ""
+
+    nFile1 = open("Backend/bdd.json", "w")
+    nFile1.write(json.dumps(data))
+    nFile1.close()
+
+    nFile2 = open("Backend/imagesBdd.json", "w")
+    nFile2.write(json.dumps(bddPhotosAdd))
+    nFile2.close()
+
+    print("JSONS actualitzados")
 
 if __name__ == '__main__':
     app.run(port=5000)
