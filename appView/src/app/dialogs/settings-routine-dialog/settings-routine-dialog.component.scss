@@ -12,73 +12,123 @@
 
     .section {
         display: flex;
-        gap: 15px;
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
 
-        .imageSection {
-            justify-content: center;
+        .section1 {
             display: flex;
+            gap: 15px;
+            justify-content: center;
 
-            .imageDiv {
-                width: 180px;
-                height: 180px;
-                background-color: gray;
-                display: flex;
+            .imageSection {
                 justify-content: center;
-                align-items: center;
-                background-size: cover;
-                background-repeat: no-repeat;
+                display: flex;
 
-                .uploadImage{
-                    width: 30%;
+                .imageDiv {
+                    width: 180px;
+                    height: 180px;
+                    background-color: gray;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
 
-                    img{
-                        width: 100%;
+                    .uploadImage {
+                        width: 30%;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .uploadImage:hover {
+                        cursor: pointer;
+                        opacity: .7;
                     }
                 }
+            }
 
-                .uploadImage:hover{
-                    cursor: pointer;
-                    opacity: .7;
+            .inputsSection {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 50%;
+
+                .inpSec {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                .inputs {
+                    width: 100%;
+                    background: rgb(240, 240, 240);
+                    padding: 10px;
+                    font-size: 15px;
+                }
+
+                .textSec {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .textArea {
+                        height: 100%;
+                        resize: none;
+                        box-sizing: border-box;
+                        font-family: "Calibri";
+                        font-size: 15px;
+                        padding: 10px;
+                    }
+
                 }
             }
         }
 
-        .inputsSection {
+
+        .section2 {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 50%;
+            gap: 15px;
+            justify-content: center;
 
-            .inpSec {
+            .title {
+                width: 180px;
                 display: flex;
-                flex-direction: column;
-                gap: 5px;
+                align-items: center;
+                justify-content: center;
+
+                p {
+                    text-align: center;
+                }
             }
 
-            .inputs {
-                width: 100%;
-                background: rgb(240, 240, 240);
-                padding: 10px;
-                font-size: 15px;
-            }
-
-            .textSec {
-                height: 100%;
+            .activateRoutineButtons {
                 display: flex;
-                flex-direction: column;
+                width: 50%;
                 gap: 5px;
 
-                .textArea {
-                    height: 100%;
-                    resize: none;
-                    box-sizing: border-box;
-                    font-family: "Calibri";
-                    font-size: 15px;
-                    padding: 10px;
+                .bttn {
+                    background-color: white;
+                    display: flex;
+                    width: 50%;
+                    padding: 5px;
+                    justify-content: center;
+                    align-items: center;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                    border-radius: 5px;
+
+                }
+
+                .bttn:hover {
+                    cursor: pointer;
                 }
 
             }
+
+
         }
     }
 
@@ -98,7 +148,7 @@
             border-radius: 5px;
         }
 
-        .sendButton:hover{
+        .sendButton:hover {
             opacity: .7;
             cursor: pointer;
         }

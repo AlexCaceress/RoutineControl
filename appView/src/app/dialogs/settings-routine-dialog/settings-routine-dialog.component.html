@@ -3,29 +3,48 @@
         <h3>Edit Routine</h3>
     </div>
     <div class="section">
-        <div class="imageSection">
-            <div class="imageDiv" [style.background-image]="'url(' + backgroundImage  + ')'" (mouseover)="moseOverImageDiv()"
-                (mouseleave)="moseLeaveImageDiv()">
-                
-                <label class="uploadImage" *ngIf="touchingImageSection" for="inputFile">
-                    <img src="assets/edit.png" alt="">
-                </label>
 
-                <input style="display: none; visibility: none;" id="inputFile" #imageInput type="file" accept="image/*"
-                    (change)="processFile(imageInput)">
+        <div class="section1">
+            <div class="imageSection">
+                <div class="imageDiv" [style.background-image]="'url(' + backgroundImage  + ')'"
+                    (mouseover)="moseOverImageDiv()" (mouseleave)="moseLeaveImageDiv()">
+
+                    <label class="uploadImage" *ngIf="touchingImageSection" for="inputFile">
+                        <img src="assets/edit.png" alt="">
+                    </label>
+
+                    <input style="display: none; visibility: none;" id="inputFile" #imageInput type="file"
+                        accept="image/*" (change)="processFile(imageInput)">
+                </div>
+            </div>
+            <div class="inputsSection">
+                <div class="inpSec">
+                    <p>Name routine</p>
+                    <input [(ngModel)]="nameRoutine" class="inputs" type="text">
+                </div>
+
+                <div class="textSec">
+                    <p>Description</p>
+                    <textarea [(ngModel)]="descritpionRoutine" class="textArea inputs" type="text"></textarea>
+                </div>
             </div>
         </div>
-        <div class="inputsSection">
-            <div class="inpSec">
-                <p>Name routine</p>
-                <input [(ngModel)]="nameRoutine" class="inputs" type="text">
+
+        <div class="section2">
+            <div class="title">
+                <p>Using Routine</p>
             </div>
 
-            <div class="textSec">
-                <p>Description</p>
-                <textarea [(ngModel)]="descritpionRoutine" class="textArea inputs" type="text"></textarea>
+            <div class="activateRoutineButtons">
+                <div (click)="activateRoutine = true" [style.background-color]="(activateRoutine) ? '#58D68D' : '#ffffff'" class="bttn">
+                    <p>Activate</p>
+                </div>
+                <div (click)="activateRoutine = false" [style.background-color]="(activateRoutine == false) ? '#F1948A' : '#ffffff'" class="bttn">
+                    <p>Deactivate</p>
+                </div>
             </div>
         </div>
+
     </div>
 
     <div class="buttonSection">

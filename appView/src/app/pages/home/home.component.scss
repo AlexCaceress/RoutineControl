@@ -47,7 +47,7 @@
         .buttonAddRoutine {
             background-color: grey;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            padding:10px;
+            padding: 10px;
             border-radius: 100%;
             width: 40px;
             text-align: center;
@@ -60,33 +60,39 @@
     }
 }
 
-.dayRoutine{
+.dayRoutine {
     width: 70%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 5px;
     height: 100%;
 }
 
-.valignCenter{
+.valignCenter {
     display: flex;
     align-items: center;
 }
 
-.routine{
+.routinesSection {
     display: flex;
-    padding: 5px;
-    gap: 10px;
+    flex-direction: column;
+    gap: 15px;
 
-    .imgRoutine{
-        width: 100px;
-        height: 100px;
-        background-color: rgb(172, 203, 255);
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        background-size: cover;
+    .routine {
+        display: flex;
+        gap: 10px;
+
+        .imgRoutine {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(172, 203, 255);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-size: cover;
+        }
     }
 }
 
-.routine:hover{
+
+.routine:hover {
     background-color: rgb(231, 231, 231);
     cursor: pointer;
 }

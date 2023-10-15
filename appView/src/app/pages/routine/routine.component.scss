@@ -39,13 +39,15 @@ p {
 
 }
 
-.configButtonRoutine {
-    img {
-        width: 25px;
+.ButtonsDiv {
+    .configButtonRoutine {
+        img {
+            width: 25px;
+        }
     }
 }
 
-.configButtonRoutine:hover{
+.configButtonRoutine:hover {
     cursor: pointer;
     opacity: .7;
 }

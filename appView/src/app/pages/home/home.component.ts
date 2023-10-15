@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SelectDaysDialogComponent } from 'src/app/dialogs/select-days-dialog/select-days-dialog.component';
-import { Routine } from 'src/app/interfaces/routine';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -26,6 +25,15 @@ export class HomeComponent {
     })
   }
 
+  async createNewRoutine(daysRoutine : string[]) {
+    let newRoutine: any = await this.api.createNewRoutine(daysRoutine)
+    this.myRoutines.push(newRoutine);
+  }
+
+
+  viewRoutine(routine: any) {
+    this.router.navigate([`routine/${routine.name}`])
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(SelectDaysDialogComponent, {
@@ -38,17 +46,6 @@ export class HomeComponent {
         this.createNewRoutine(result)      
       }
     });
-  }
-
-
-  async createNewRoutine(daysRoutine : string[]) {
-    let newRoutine: any = await this.api.createNewRoutine(daysRoutine)
-    this.myRoutines.push(newRoutine);
-  }
-
-
-  viewRoutine(routine: any) {
-    this.router.navigate([`routine/${routine.name}`])
   }
 
 }

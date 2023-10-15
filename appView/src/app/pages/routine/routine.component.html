@@ -7,16 +7,18 @@
             <div class="infoRoutine" *ngIf="myRoutine">
                 <div>
                     <p class="name">{{myRoutine.name}}</p>
+                </div>
+                <div>
                     <p>Descripción: {{myRoutine.description}}</p>
                     <p>Days: {{myRoutine.numberDays}}</p>
+                    <p>Using Routine: {{myRoutine.activeRoutine}}</p>
                 </div>
                 <div>
                     <p>{{myRoutine.dateCreateRoutine}}</p>
-                    <p>{{myRoutine.nameCreator}}</p>
                 </div>
             </div>
         </div>
-        <div class="configButtonDiv">
+        <div class="ButtonsDiv">
             <div class="configButtonRoutine" (click)="openDialogConfigRoutine()">
                 <img src="assets/settings2.png" alt="settings">
             </div>
@@ -39,7 +41,7 @@
 
             <div class="section">
                 <div class="exerciceSection" *ngFor="let exercice of routine.data">
-                    <div class="exerciceRoutine" >
+                    <div class="exerciceRoutine">
                         <img src="{{baseImageURL}}{{exercice.nameExercice}}.png" alt="img">
                         <p>{{exercice.nameExercice}}</p>
                     </div>

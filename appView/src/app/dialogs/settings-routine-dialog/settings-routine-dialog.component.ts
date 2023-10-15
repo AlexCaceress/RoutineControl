@@ -12,6 +12,7 @@ export class SettingsRoutineDialogComponent {
   descritpionRoutine : any;
   backgroundImage : any;
   touchingImageSection : boolean = false;
+  activateRoutine : boolean = false;
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SettingsRoutineDialogComponent>){
@@ -23,7 +24,7 @@ export class SettingsRoutineDialogComponent {
   }
 
   sendInfo(){
-    let data = {"nameRoutine" : this.nameRoutine, "descritpionRoutine" : this.descritpionRoutine, "imageRoutine" : this.backgroundImage}
+    let data = {"nameRoutine" : this.nameRoutine, "descritpionRoutine" : this.descritpionRoutine, "imageRoutine" : this.backgroundImage, "activateRoutine" : this.activateRoutine}
     this.dialogRef.close(data);
   }
 
