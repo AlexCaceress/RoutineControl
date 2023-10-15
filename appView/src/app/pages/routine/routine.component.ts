@@ -64,7 +64,8 @@ export class RoutineComponent {
       data: {
         "nameRoutine": this.myRoutine.name,
         "descriptionRoutine": this.myRoutine.description,
-        "imageRoutine" : this.myRoutine.photo
+        "imageRoutine" : this.myRoutine.photo,
+        "activateRoutine" : this.myRoutine.activeRoutine
       }
     });
 

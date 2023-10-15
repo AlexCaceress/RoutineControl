@@ -20,11 +20,13 @@ export class SettingsRoutineDialogComponent {
     this.nameRoutine = data.nameRoutine;
     this.descritpionRoutine = data.descriptionRoutine;
     this.backgroundImage = data.imageRoutine;
+    this.activateRoutine = data.activateRoutine
     
   }
 
   sendInfo(){
     let data = {"nameRoutine" : this.nameRoutine, "descritpionRoutine" : this.descritpionRoutine, "imageRoutine" : this.backgroundImage, "activateRoutine" : this.activateRoutine}
+    console.log(data);
     this.dialogRef.close(data);
   }
 

@@ -73,6 +73,11 @@ def changeConfig():
     data[oldNameRoutine]["description"] = newConfigRoutine["descritpionRoutine"]
     data[oldNameRoutine]["photo"] = newConfigRoutine["imageRoutine"]
 
+    for i in data.keys():
+        data[i]["activeRoutine"] = False
+
+    data[oldNameRoutine]["activeRoutine"] = newConfigRoutine["activateRoutine"]
+    
     data[newConfigRoutine["nameRoutine"]] = data.pop(oldNameRoutine, None)
 
     return data[newConfigRoutine["nameRoutine"]]
