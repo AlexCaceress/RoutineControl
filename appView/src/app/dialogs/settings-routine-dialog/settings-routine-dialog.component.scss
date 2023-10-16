@@ -110,47 +110,18 @@
                 gap: 5px;
 
                 .bttn {
-                    background-color: white;
-                    display: flex;
                     width: 50%;
-                    padding: 5px;
-                    justify-content: center;
-                    align-items: center;
-                    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-                    border-radius: 5px;
-
                 }
-
-                .bttn:hover {
-                    cursor: pointer;
-                }
-
             }
-
-
         }
     }
 
     .buttonSection {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
 
         .sendButton {
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
             width: 80px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-            border-radius: 5px;
-        }
-
-        .sendButton:hover {
-            opacity: .7;
-            cursor: pointer;
         }
     }
 }

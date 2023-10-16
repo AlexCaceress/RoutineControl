@@ -1,7 +1,3 @@
-p {
-    font-size: 14px;
-}
-
 .navRoutine {
     display: flex;
     justify-content: space-between;
@@ -10,150 +6,152 @@ p {
 
     p {
         color: white;
-    }
-}
-
-.sectionInfoRoutine {
-    display: flex;
-    gap: 10px;
-}
-
-.imgSection {
-    width: 170px;
-    height: 170px;
-    background-color: grey;
-    border-radius: 5px;
-    background-size: cover;
-
-}
-
-.infoRoutine {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .name {
-        font-size: 4vw;
-        font-weight: bold;
+        font-size: 14px;
     }
 
-}
+    .sectionInfoRoutine {
+        display: flex;
+        gap: 10px;
 
-.ButtonsDiv {
+        .imgSection {
+            width: 170px;
+            height: 170px;
+            background-color: grey;
+            border-radius: 5px;
+            background-size: cover;
+
+        }
+
+        .infoRoutine {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .name {
+                font-size: 4vw;
+                font-weight: bold;
+            }
+
+        }
+    }
+
     .configButtonRoutine {
         img {
             width: 25px;
         }
     }
+
+    .configButtonRoutine:hover {
+        cursor: pointer;
+        opacity: .7;
+    }
+
 }
 
-.configButtonRoutine:hover {
-    cursor: pointer;
-    opacity: .7;
-}
 
 .myDaysSection {
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 20px;
-}
 
-.day {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 10px 40px 10px;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background-color: rgb(237, 237, 237);
-    border-radius: 5px;
 
-    .navDay {
-        display: flex;
-        gap: 5px;
-        justify-content: space-between;
-
-        .buttonsSection {
-            display: flex;
-            gap: 10px;
-
-            .editDayButton {
-                text-align: center;
-                display: flex;
-                align-items: center;
-
-                img {
-                    vertical-align: bottom;
-                    width: 20px;
-                }
-            }
-
-            .playRoutineButton {
-                text-align: center;
-
-                img {
-                    vertical-align: bottom;
-                    width: 25px;
-                }
-            }
-
-            .editDayButton:hover,
-            .playRoutineButton:hover {
-                cursor: pointer;
-                opacity: .8;
-            }
-        }
-    }
-
-    .section {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .addExercice {
-        width: 120px;
-        height: 150px;
-        border: 2px dashed black;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .sumIcon {
-            font-size: 25px;
-        }
-    }
-
-    .addExercice:hover {
-        cursor: pointer;
-        opacity: .5;
-    }
-
-    .exerciceSection {
+    .day {
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: 10px;
-    }
-
-    .exerciceRoutine {
-        width: 125px;
-        height: 150px;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        padding: 10px 10px 40px 10px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        background-color: rgb(237, 237, 237);
         border-radius: 5px;
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
 
-        p {
-            text-align: center;
+        .navDay {
+            display: flex;
+            gap: 5px;
+            justify-content: space-between;
+
+            .buttonsSection {
+                display: flex;
+                gap: 10px;
+
+                .editDayButton {
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        vertical-align: bottom;
+                        width: 20px;
+                    }
+                }
+
+                .playRoutineButton {
+                    text-align: center;
+
+                    img {
+                        vertical-align: bottom;
+                        width: 25px;
+                    }
+                }
+
+                .editDayButton:hover,
+                .playRoutineButton:hover {
+                    cursor: pointer;
+                    opacity: .8;
+                }
+            }
         }
 
-        img {
-            width: 80%;
+        .section {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .addExercice {
+            width: 120px;
+            height: 150px;
+            border: 2px dashed black;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .sumIcon {
+                font-size: 25px;
+            }
+        }
+
+        .addExercice:hover {
+            cursor: pointer;
+            opacity: .5;
+        }
+
+        .exerciceSection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exerciceRoutine {
+            width: 125px;
+            height: 150px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            p {
+                text-align: center;
+            }
+
+            img {
+                width: 80%;
+            }
         }
     }
 }

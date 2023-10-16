@@ -48,17 +48,7 @@
 
 .buttonSection{
     display: flex;
-    justify-content: end;
-    .sumbitButton{
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
-    }
-
-    .sumbitButton:hover{
-        opacity: .7;
-        cursor: pointer;
-    }
+    justify-content: flex-end;
 }
 
 .selectBackground{

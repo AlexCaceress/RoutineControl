@@ -18,10 +18,8 @@
                 </div>
             </div>
         </div>
-        <div class="ButtonsDiv">
-            <div class="configButtonRoutine" (click)="openDialogConfigRoutine()">
-                <img src="assets/settings2.png" alt="settings">
-            </div>
+        <div class="configButtonRoutine" (click)="openDialogConfigRoutine()">
+            <img src="assets/settings2.png" alt="settings">
         </div>
     </div>
 
@@ -45,7 +43,7 @@
                         <img src="{{baseImageURL}}{{exercice.nameExercice}}.png" alt="img">
                         <p>{{exercice.nameExercice}}</p>
                     </div>
-                    <p>{{exercice.sets + "x" + exercice.reps}}</p>
+                    <p>{{exercice.sets + " X " + exercice.reps}}</p>
                 </div>
                 <div class="addExercice" (click)="openDialogAddExercice(routine.day)">
                     <p class="sumIcon">+</p>

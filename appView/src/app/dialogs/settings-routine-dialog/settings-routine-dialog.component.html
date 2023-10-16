@@ -36,10 +36,10 @@
             </div>
 
             <div class="activateRoutineButtons">
-                <div (click)="activateRoutine = true" [style.background-color]="(activateRoutine) ? '#58D68D' : '#ffffff'" class="bttn">
+                <div (click)="activateRoutine = true" [style.background-color]="(activateRoutine) ? '#58D68D' : '#ffffff'" class="bttn globalButtonStyle">
                     <p>Activate</p>
                 </div>
-                <div (click)="activateRoutine = false" [style.background-color]="(activateRoutine == false) ? '#F1948A' : '#ffffff'" class="bttn">
+                <div (click)="activateRoutine = false" [style.background-color]="(activateRoutine == false) ? '#F1948A' : '#ffffff'" class="bttn globalButtonStyle">
                     <p>Deactivate</p>
                 </div>
             </div>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="buttonSection">
-        <div class="sendButton" (click)="sendInfo()">
+        <div class="sendButton globalButtonStyle" (click)="sendInfo()">
             <p>SEND</p>
         </div>
     </div>
