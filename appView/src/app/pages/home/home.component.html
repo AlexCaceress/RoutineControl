@@ -1,5 +1,5 @@
 <div class="parentDiv">
-    <div class="navBar">
+    <div class="navBar panel">
         <div class="container"></div>
         <div class="title container">ROUTINES APP</div>
         <div class="account container">
@@ -9,7 +9,7 @@
 
     <div class="contentApp">
 
-        <div class="myRoutines">
+        <div class="myRoutines panel">
             <div class="bar">
                 <div class="buttonAddRoutine" (click)="openDialog()">+</div>
                 <span class="valignCenter">My Routines</span>
@@ -28,8 +28,15 @@
         </div>
 
 
-        <div class="dayRoutine">
-
+        <div class="dayRoutine panel">
+            <div class="title">
+                <p> TODAY'S ROUTINE</p>
+            </div>
+            <div class="cardRoutineSection">
+                <div class="cardRoutine">
+                    <p></p>
+                </div>
+            </div>
         </div>
 
     </div>

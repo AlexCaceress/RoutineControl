@@ -6,11 +6,14 @@
     height: 100vh;
 }
 
+.panel{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+
 .navBar {
     display: flex;
     padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
     height: 10%;
 
     .container {
@@ -34,8 +37,6 @@
 
 .myRoutines {
     width: 30%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
     height: 100%;
     overflow-y: scroll;
 
@@ -62,9 +63,25 @@
 
 .dayRoutine {
     width: 70%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+
+    .title{
+        text-align: center;
+    }
+
+    .cardRoutineSection{
+        display: flex;
+        justify-content: center;
+
+        .cardRoutine{
+            width: 70%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+    }
 }
 
 .valignCenter {

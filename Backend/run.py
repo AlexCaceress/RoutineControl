@@ -3,20 +3,27 @@ import json
 import Routines
 from flask import request
 from datetime import date
+import calendar
+from datetime import datetime
+
+
 
 app = Flask(__name__)  
 
-bddFile = open("Backend/bdd.json")
+bddFile = open("bdd.json")
 data = json.load(bddFile)
 
-bddImagesFile = open("Backend/imagesBdd.json")
+bddImagesFile = open("imagesBdd.json")
 bddPhotos = json.load(bddImagesFile)
 
 bddFile.close()
 bddImagesFile.close()
 
-for i in bddPhotos["images"]:
-    data[i["nameRoutine"]]["photo"] = i["photo"]
+
+if(bddPhotos["images"]):
+    for i in bddPhotos["images"]:
+        data[i["nameRoutine"]]["photo"] = i["photo"]
+
 
 @app.after_request
 def apply_caching(response):
@@ -73,8 +80,9 @@ def changeConfig():
     data[oldNameRoutine]["description"] = newConfigRoutine["descritpionRoutine"]
     data[oldNameRoutine]["photo"] = newConfigRoutine["imageRoutine"]
 
-    for i in data.keys():
-        data[i]["activeRoutine"] = False
+    if(newConfigRoutine["activateRoutine"] == True):
+        for i in data.keys():
+            data[i]["activeRoutine"] = False
 
     data[oldNameRoutine]["activeRoutine"] = newConfigRoutine["activateRoutine"]
     
@@ -92,6 +100,21 @@ def getRoutines():
 
     return myRoutines
 
+
+@app.route("/todaysRoutine/")
+def getTodaysRoutine():
+    
+    dt = datetime.now()
+    todayName = dt.strftime('%A')
+
+    for i in data.values():
+        if(i["activeRoutine"] == True):
+            return {"dayRoutine" : data[i["name"]]["days"][todayName]["data"], "dayName" : todayName} 
+
+    return {"dayRoutine" : [], "dayName" : todayName}
+    
+
+
 @app.route("/routine/<nameRoutine>/", methods=['GET'])
 def getMyRoutine(nameRoutine):
     return data[nameRoutine]
@@ -107,11 +130,11 @@ def dumpJSON():
             bddPhotosAdd["images"].append({"nameRoutine" : i["name"], "photo" : i["photo"]})
             data[i["name"]]["photo"] = ""
 
-    nFile1 = open("Backend/bdd.json", "w")
+    nFile1 = open("bdd.json", "w")
     nFile1.write(json.dumps(data))
     nFile1.close()
 
-    nFile2 = open("Backend/imagesBdd.json", "w")
+    nFile2 = open("imagesBdd.json", "w")
     nFile2.write(json.dumps(bddPhotosAdd))
     nFile2.close()
 

@@ -38,15 +38,10 @@ export class ApiService {
 
   viewMyRoutine(nameRoutine: string) {
 
-    let x: any = "error"
-
-
     return new Promise((resolv, reject) => {
-      this.http.get(this.baseURL + `routine/${nameRoutine}/`)
-        .subscribe((res: any) => {
+      this.http.get(this.baseURL + `routine/${nameRoutine}/`).subscribe((res: any) => {
           resolv(res)
         }, (err: any) => {
-          console.log("Error");
           resolv("Error")
         })
 
@@ -56,22 +51,35 @@ export class ApiService {
   addExerciceDay(day: string, dataExercice: string, nameRoutine: string) {
 
     return new Promise((resolv, reject) => {
-      this.http.post(this.baseURL + "modifyRoutine/", {nameRoutine : nameRoutine, day : day, dataExercice : dataExercice}).subscribe((res) => {
+      this.http.post(this.baseURL + "modifyRoutine/", { nameRoutine: nameRoutine, day: day, dataExercice: dataExercice }).subscribe((res) => {
         resolv(res);
       })
     })
 
   }
 
-  changeConfigRoutine(nameRoutine : string, newConfigRoutine : any){
+  changeConfigRoutine(nameRoutine: string, newConfigRoutine: any) {
 
     return new Promise((resolv, reject) => {
-      this.http.post(this.baseURL + "changeConfigRoutine/", {nameRoutine : nameRoutine, newConfigRoutine : newConfigRoutine}).subscribe((res) => {
+      this.http.post(this.baseURL + "changeConfigRoutine/", { nameRoutine: nameRoutine, newConfigRoutine: newConfigRoutine }).subscribe((res) => {
         resolv(res);
       })
     })
-    
+
   }
+
+  getTodaysRoutine() {
+
+    return new Promise((resolv, reject) => {
+      this.http.get(this.baseURL + "todaysRoutine/").subscribe((res) => {
+        resolv(res);
+      })
+    })
+
+  }
+
+
+
 
 
 

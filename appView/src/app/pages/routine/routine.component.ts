@@ -12,25 +12,26 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class RoutineComponent {
 
-  myRoutine: any = {}
+  myRoutine: any = {photo : ""}
   daysArray: any = []
 
   baseImageURL = "assets/"
 
   constructor(private api: ApiService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute) {
+    this.getInfoRoutine()
+  }
 
-    let nameRoutine = this.route.snapshot.params['routineID'];
+  async getInfoRoutine() {
 
-    this.api.viewMyRoutine(nameRoutine).then((res: any) => {
+    let nameRoutine: any = this.route.snapshot.params['routineID'];
+    let res: any = await this.api.viewMyRoutine(nameRoutine);
 
-      if (Object.keys(res).length > 0 && res != "Error") {
+    if (Object.keys(res).length > 0 && res != "Error") {
+      this.updateRoutine(res);
+    } else {
+      this.router.navigate([""])
+    }
 
-        this.updateRoutine(res);
-
-      } else {
-        this.router.navigate([""])
-      }
-    })
   }
 
   updateRoutine(newRoutine: any) {
@@ -56,7 +57,7 @@ export class RoutineComponent {
 
 
   //DIALOGS
-  
+
   openDialogConfigRoutine() {
     const dialogRef = this.dialog.open(SettingsRoutineDialogComponent, {
       width: "600px",
@@ -64,8 +65,8 @@ export class RoutineComponent {
       data: {
         "nameRoutine": this.myRoutine.name,
         "descriptionRoutine": this.myRoutine.description,
-        "imageRoutine" : this.myRoutine.photo,
-        "activateRoutine" : this.myRoutine.activeRoutine
+        "imageRoutine": this.myRoutine.photo,
+        "activateRoutine": this.myRoutine.activeRoutine
       }
     });
 

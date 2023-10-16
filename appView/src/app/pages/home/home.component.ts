@@ -12,17 +12,25 @@ import { ApiService } from 'src/app/services/api.service';
 export class HomeComponent {
 
   myRoutines = new Array<any>();
+  todaysRoutine : any;
 
   constructor(private api: ApiService, public router: Router, public dialog: MatDialog) {
     this.getRoutines()
   }
 
-  getRoutines(){
-    this.api.getRoutines().then((res: any) => {
-      for (let routine of res) {
+  async getRoutines(){
+
+    let myRoutines_RES : any = await this.api.getRoutines()
+
+    if(myRoutines_RES){
+      for (let routine of myRoutines_RES) {
         this.myRoutines.push(routine);
       }
-    })
+    }
+
+    this.todaysRoutine = await this.api.getTodaysRoutine();
+    console.log(this.todaysRoutine);
+    
   }
 
   async createNewRoutine(daysRoutine : string[]) {
@@ -47,5 +55,9 @@ export class HomeComponent {
       }
     });
   }
+
+  async getTodaysRoutine(){
+    this.todaysRoutine = await this.api.getTodaysRoutine();
+  } 
 
 }
