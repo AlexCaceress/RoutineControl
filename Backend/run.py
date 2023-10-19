@@ -109,9 +109,13 @@ def getTodaysRoutine():
 
     for i in data.values():
         if(i["activeRoutine"] == True):
-            return {"dayRoutine" : data[i["name"]]["days"][todayName]["data"], "dayName" : todayName} 
+                try:
+                    return {"dayRoutine" : data[i["name"]]["days"][todayName]["data"], "dayName" : todayName, "chillday" : False} 
+                except:
+                    print("No hi ha cap dia")
 
-    return {"dayRoutine" : [], "dayName" : todayName}
+
+    return {"dayRoutine" : [], "dayName" : todayName, "chillday" : True}
     
 
 

@@ -12,7 +12,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class HomeComponent {
 
   myRoutines = new Array<any>();
-  todaysRoutine : any;
+  baseImageURL = "assets/"
+  todaysRoutine : any = {};
 
   constructor(private api: ApiService, public router: Router, public dialog: MatDialog) {
     this.getRoutines()
@@ -28,8 +29,10 @@ export class HomeComponent {
       }
     }
 
-    this.todaysRoutine = await this.api.getTodaysRoutine();
-    console.log(this.todaysRoutine);
+    this.api.getTodaysRoutine().subscribe((res) => {
+      this.todaysRoutine = res;
+      console.log(this.todaysRoutine)
+    })
     
   }
 

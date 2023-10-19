@@ -1,27 +1,26 @@
 .parentDiv {
-    padding: 0px 2px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     height: 100vh;
+    background-color: rgb(234, 234, 234);
 }
 
-.panel{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
+.panel {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .navBar {
     display: flex;
     padding: 10px;
-    height: 10%;
+    height: 8%;
 
     .container {
         width: 33.33%;
-    }
-
-    .title {
-        text-align: center;
+        margin: auto;
     }
 
     .account {
@@ -40,13 +39,38 @@
     height: 100%;
     overflow-y: scroll;
 
+    .routinesSection {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .routine {
+            display: flex;
+            gap: 10px;
+            padding: 5px 10px;
+
+            .imgRoutine {
+                width: 100px;
+                height: 100px;
+                background-color: rgb(172, 203, 255);
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                background-size: cover;
+            }
+        }
+    }
+
+
+    .routine:hover {
+        background-color: rgb(231, 231, 231);
+        cursor: pointer;
+    }
+
     .bar {
         display: flex;
         justify-content: space-between;
         padding: 10px;
 
         .buttonAddRoutine {
-            background-color: grey;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             padding: 10px;
             border-radius: 100%;
@@ -66,20 +90,57 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     padding: 20px;
+    // background-size: 400% 400%;
+    // animation: gradient 15s ease infinite;
 
-    .title{
-        text-align: center;
-    }
-
-    .cardRoutineSection{
+    .chillDay{
         display: flex;
         justify-content: center;
+        align-items: center;
+        height: 100%;
+        
+        img{
+            width: 80%;
+        }
+    }
 
-        .cardRoutine{
-            width: 70%;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    .cardRoutineSection {
+        padding: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        background-color: #f5f5f5;
+        height: 100%;
+        width: 520px;
+        overflow-y: scroll;
+
+        .containerCards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            border-radius: 5px;
+        }
+
+        .cardRoutine {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 140px;
+            height: 160px;
+            border-radius: 5px;
+            padding: 10px;
+
+            p {
+                text-align: center;
+            }
+
+            img {
+                width: 70px;
+            }
+
         }
     }
 }
@@ -89,27 +150,63 @@
     align-items: center;
 }
 
-.routinesSection {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+@media only screen and (max-width: 900px) {
+    .contentApp {
+        flex-direction: column;
+        height: auto;
+    }
 
-    .routine {
-        display: flex;
-        gap: 10px;
+    .dayRoutine {
+        width: 100%;
+        height: auto;
 
-        .imgRoutine {
-            width: 100px;
-            height: 100px;
-            background-color: rgb(172, 203, 255);
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            background-size: cover;
+        .cardRoutineSection {
+            width: 100%;
         }
+    }
+
+    .myRoutines {
+        width: 100%;
+        height: auto;
+        padding: 10px
     }
 }
 
+.title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
 
-.routine:hover {
-    background-color: rgb(231, 231, 231);
-    cursor: pointer;
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

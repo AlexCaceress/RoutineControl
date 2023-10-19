@@ -1,7 +1,9 @@
 <div class="parentDiv">
     <div class="navBar panel">
         <div class="container"></div>
-        <div class="title container">ROUTINES APP</div>
+        <div class="container">
+            <p class="title">ROUTINES APP</p>
+        </div>
         <div class="account container">
             <span>Àlex Càceres Hiraldo</span>
         </div>
@@ -12,7 +14,7 @@
         <div class="myRoutines panel">
             <div class="bar">
                 <div class="buttonAddRoutine" (click)="openDialog()">+</div>
-                <span class="valignCenter">My Routines</span>
+                <span class="valignCenter title">MY ROUTINES</span>
             </div>
 
             <div class="routinesSection">
@@ -32,14 +34,18 @@
             <div class="title">
                 <p> TODAY'S ROUTINE</p>
             </div>
-            <div class="cardRoutineSection">
-                <div class="cardRoutine">
-                    <p></p>
+            <div *ngIf="!todaysRoutine" class="chillDay">
+                <img src="assets/chillDay.png" alt="">
+            </div>
+            <div *ngIf="todaysRoutine" class="cardRoutineSection">
+                <div class="containerCards">
+                    <div class="cardRoutine" *ngFor="let dayRoutine of todaysRoutine.dayRoutine">
+                        <p>{{dayRoutine.nameExercice}}</p>
+                        <img src="{{baseImageURL}}{{dayRoutine.nameExercice}}.png" alt="">
+                        <p>{{dayRoutine.reps + " x " + dayRoutine.sets}}</p>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
-
-
 </div>

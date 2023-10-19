@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, tap } from 'rxjs';
+import { Observable, catchError, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -68,13 +68,16 @@ export class ApiService {
 
   }
 
-  getTodaysRoutine() {
+  getTodaysRoutine() : Observable<any> {
 
-    return new Promise((resolv, reject) => {
-      this.http.get(this.baseURL + "todaysRoutine/").subscribe((res) => {
-        resolv(res);
-      })
-    })
+
+    return this.http.get(this.baseURL + "todaysRoutine/")
+
+    // return new Promise((resolv, reject) => {
+    //   this.http.get(this.baseURL + "todaysRoutine/").subscribe((res) => {
+    //     resolv(res);
+    //   })
+    // })
 
   }
 
