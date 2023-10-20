@@ -114,7 +114,6 @@ def getTodaysRoutine():
                 except:
                     print("No hi ha cap dia")
 
-
     return {"dayRoutine" : [], "dayName" : todayName, "chillday" : True}
     
 
@@ -145,7 +144,8 @@ def dumpJSON():
     print("JSONS actualitzados")
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5000) 
+    # app.run(host="1921414", port=21431)
     dumpJSON()
 
 

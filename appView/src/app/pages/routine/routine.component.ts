@@ -1,6 +1,6 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ExercicesDialogComponent } from 'src/app/dialogs/exercices-dialog/exercices-dialog.component';
 import { SettingsRoutineDialogComponent } from 'src/app/dialogs/settings-routine-dialog/settings-routine-dialog.component';
 import { ApiService } from 'src/app/services/api.service';
@@ -12,23 +12,21 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class RoutineComponent {
 
-  myRoutine: any = {photo : ""}
+  myRoutine: any = { photo: "" }
   daysArray: any = []
-
   baseImageURL = "assets/"
+  routeData : any;
 
-  constructor(private api: ApiService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute) {
-    this.getInfoRoutine()
+  constructor(private api: ApiService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute) { 
+    this.routeData = this.router.getCurrentNavigation()?.extras.state;
   }
 
-  async getInfoRoutine() {
+  ngOnInit() {
 
-    let nameRoutine: any = this.route.snapshot.params['routineID'];
-    let res: any = await this.api.viewMyRoutine(nameRoutine);
-
-    if (Object.keys(res).length > 0 && res != "Error") {
-      this.updateRoutine(res);
-    } else {
+    if (this.routeData) {
+      this.updateRoutine(this.routeData.rutine);
+    }
+    else {
       this.router.navigate([""])
     }
 
@@ -43,18 +41,16 @@ export class RoutineComponent {
     }
   }
 
-
   async updateListDaysExercice(nameDay: any, data: any) {
-    let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.myRoutine.name);
-    this.updateRoutine(updateRoutine)
+    let updatedRoutine = await this.api.addExerciceDay(nameDay, data, this.myRoutine.name);
+    this.updateRoutine(updatedRoutine)
+
   }
 
   async updateConfigRoutine(newConfigRoutine: any) {
-    let updateRoutine = await this.api.changeConfigRoutine(this.myRoutine.name, newConfigRoutine);
-    this.updateRoutine(updateRoutine)
-
+    let updatedRoutine = await this.api.changeConfigRoutine(this.myRoutine.name, newConfigRoutine);
+    this.updateRoutine(updatedRoutine)
   }
-
 
   //DIALOGS
 
@@ -89,6 +85,5 @@ export class RoutineComponent {
       }
     });
   }
-
 
 }

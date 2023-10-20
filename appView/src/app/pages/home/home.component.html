@@ -18,7 +18,7 @@
             </div>
 
             <div class="routinesSection">
-                <div class="routine" *ngFor="let routine of myRoutines" (click)="viewRoutine(routine)">
+                <div class="routine" *ngFor="let routine of myRoutines | async" (click)="viewRoutine(routine)">
                     <div class="imgRoutine" [style.background-image]="'url(' + routine.photo  + ')'"></div>
                     <div class="info">
                         <div class="name">Name: {{routine.name}}</div>
