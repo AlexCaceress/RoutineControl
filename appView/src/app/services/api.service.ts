@@ -19,38 +19,39 @@ export class ApiService {
 
   setMyRoutine(routines: any) {
 
-    for (let routine of routines) {
-      this.myRoutines.push(routine);
+    if (Array.isArray(routines)) {
+      for (let routine of routines) {
+        this.myRoutines.push(routine);
+      }
+    } else {
+      this.myRoutines.push(routines);
     }
+
     this.myRoutines$.next(this.myRoutines);
+    this.loadingService.appFinishLoading();
 
   }
 
   makeRequest(rute: string, type: string, params: any): any {
 
+    this.loadingService.appLoading()
+
     if (type == "POST") {
-      this.loadingService.appLoading()
 
       this.http.post(this.baseURL + rute, params).subscribe((res) => {
-
         this.setMyRoutine(res);
-        this.loadingService.appFinishLoading()
-
       })
     }
     else if (type == "GET") {
 
-      this.loadingService.appLoading()
-
       this.http.get(this.baseURL + rute).subscribe({
 
         next: (res) => {
-
           this.setMyRoutine(res);
-          this.loadingService.appFinishLoading();
-
         },
         //error : (err) => { }
+
+
       });
     }
   }
@@ -90,12 +91,8 @@ export class ApiService {
 
   getTodaysRoutine(): Promise<any> {
 
-    this.loadingService.appLoading()
-
     return new Promise((resolv, reject) => {
       this.http.get(this.baseURL + "todaysRoutine/").subscribe((res) => {
-
-        this.loadingService.appFinishLoading()
         resolv(res);
 
       })
