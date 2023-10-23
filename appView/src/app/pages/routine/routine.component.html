@@ -1,20 +1,20 @@
 <div class="parentDiv">
     <div class="navRoutine">
         <div class="sectionInfoRoutine">
-            <div class="imgSection" [style.background-image]="'url(' + myRoutine.photo + ')'">
+            <div class="imgSection" [style.background-image]="'url(' + singleRoutine.photo + ')'">
 
             </div>
-            <div class="infoRoutine" *ngIf="myRoutine">
+            <div class="infoRoutine" *ngIf="singleRoutine">
                 <div>
-                    <p class="name">{{myRoutine.name}}</p>
+                    <p class="name">{{singleRoutine.name}}</p>
                 </div>
                 <div>
-                    <p>Descripción: {{myRoutine.description}}</p>
-                    <p>Days: {{myRoutine.numberDays}}</p>
-                    <p>Using Routine: {{myRoutine.activeRoutine}}</p>
+                    <p>Descripción: {{singleRoutine.description}}</p>
+                    <p>Days: {{singleRoutine.numberDays}}</p>
+                    <p>Using Routine: {{singleRoutine.activeRoutine}}</p>
                 </div>
                 <div>
-                    <p>{{myRoutine.dateCreateRoutine}}</p>
+                    <p>{{singleRoutine.dateCreateRoutine}}</p>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 <h3 class="nameDay">{{routine.day}}</h3>
                 <div class="buttonsSection">
                     <div class="editDayButton">
-                        <img src="assets/edit.png" alt="">
+                        <img src="assets/edit.png" (click)="viewDayConfig(routine, $event)" alt="">
                     </div>
                     <div class="playRoutineButton">
                         <img src="assets/play.png" alt="">

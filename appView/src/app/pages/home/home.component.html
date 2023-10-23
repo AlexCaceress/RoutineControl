@@ -18,7 +18,7 @@
             </div>
 
             <div class="routinesSection">
-                <div class="routine" *ngFor="let routine of myRoutines | async" (click)="viewRoutine(routine)">
+                <div class="routine" *ngFor="let routine of dataService.allRoutines$ | async" (click)="viewRoutine(routine)">
                     <div class="imgRoutine" [style.background-image]="'url(' + routine.photo  + ')'"></div>
                     <div class="info">
                         <div class="name">Name: {{routine.name}}</div>
@@ -34,12 +34,12 @@
             <div class="title">
                 <p> TODAY'S ROUTINE</p>
             </div>
-            <div *ngIf="!todaysRoutine" class="chillDay">
+            <div *ngIf="!dataService.todaysRoutine" class="chillDay">
                 <img src="assets/chillDay.png" alt="">
             </div>
-            <div *ngIf="todaysRoutine" class="cardRoutineSection">
+            <div *ngIf="dataService.todaysRoutine" class="cardRoutineSection">
                 <div class="containerCards">
-                    <div class="cardRoutine" *ngFor="let dayRoutine of todaysRoutine.dayRoutine">
+                    <div class="cardRoutine" *ngFor="let dayRoutine of dataService.todaysRoutine.dayRoutine">
                         <p>{{dayRoutine.nameExercice}}</p>
                         <img src="{{baseImageURL}}{{dayRoutine.nameExercice}}.png" alt="">
                         <p>{{dayRoutine.reps + " x " + dayRoutine.sets}}</p>

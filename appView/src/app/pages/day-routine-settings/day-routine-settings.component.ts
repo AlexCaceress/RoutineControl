@@ -8,10 +8,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DayRoutineSettingsComponent {
   
-  constructor(private route: ActivatedRoute, private router: Router){
+  routine : any = {}
 
-    let prova : any = this.router.getCurrentNavigation()?.extras.state;
-    console.log(prova);
-  
+  constructor(private route: ActivatedRoute, private router: Router){ }
+
+  ngOnInit(){
+
+    this.routine = this.router.getCurrentNavigation()?.extras.state;
+    console.log(this.routine);
+    
   }
 }

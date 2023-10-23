@@ -120,7 +120,11 @@ def getTodaysRoutine():
 
 @app.route("/routine/<nameRoutine>/", methods=['GET'])
 def getMyRoutine(nameRoutine):
-    return data[nameRoutine]
+
+    try:
+         return data[nameRoutine]
+    except:
+        return {}
 
 def dumpJSON():
 

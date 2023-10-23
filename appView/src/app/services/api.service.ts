@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
 import { LoadingService } from './loading.service';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,26 +11,7 @@ export class ApiService {
 
   baseURL = "http://localhost:5000/"
 
-  public myRoutines: any = [];
-  public myRoutines$: BehaviorSubject<any>;
-
-  constructor(private http: HttpClient, public loadingService: LoadingService) {
-    this.myRoutines$ = new BehaviorSubject<any>(this.myRoutines);
-  }
-
-  setMyRoutine(routines: any) {
-
-    if (Array.isArray(routines)) {
-      for (let routine of routines) {
-        this.myRoutines.push(routine);
-      }
-    } else {
-      this.myRoutines.push(routines);
-    }
-
-    this.myRoutines$.next(this.myRoutines);
-    this.loadingService.appFinishLoading();
-
+  constructor(private http: HttpClient, public loadingService: LoadingService, public dataService: DataService) {
   }
 
   makeRequest(rute: string, type: string, params: any): any {
@@ -39,26 +21,29 @@ export class ApiService {
     if (type == "POST") {
 
       this.http.post(this.baseURL + rute, params).subscribe((res) => {
-        this.setMyRoutine(res);
+        this.dataService.setRoutine(res);
       })
+
     }
     else if (type == "GET") {
 
       this.http.get(this.baseURL + rute).subscribe({
-
         next: (res) => {
-          this.setMyRoutine(res);
+          this.dataService.setRoutine(res);
         },
-        //error : (err) => { }
-
-
       });
+
     }
   }
 
+  getAllRoutines() {
 
-  getRoutines() {
-    this.makeRequest("getRoutines/", "GET", false);
+    this.loadingService.appLoading()
+    this.http.get(this.baseURL + "getRoutines/").subscribe(
+      (res) => {
+        this.dataService.setAllRoutines(res);
+      },
+    );
   }
 
   createNewRoutine(daysRoutine: string[]) {
@@ -66,7 +51,14 @@ export class ApiService {
   }
 
   viewMyRoutine(nameRoutine: string) {
-    this.makeRequest(`routine/${nameRoutine}/`, "GET", false);
+
+    return new Promise((resolv, reject) => {
+      this.http.get(this.baseURL + `routine/${nameRoutine}/`).subscribe({
+        next: (res) => {
+          resolv(res);
+        }
+      })
+    })
   }
 
   addExerciceDay(day: string, dataExercice: string, nameRoutine: string) {

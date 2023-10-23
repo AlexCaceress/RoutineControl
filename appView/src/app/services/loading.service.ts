@@ -6,9 +6,9 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 export class LoadingService {
   // isLoading$ = new Subject<boolean>();
-  isLoading$ : boolean = true;
-
-  appLoading(){
+  isLoading$ : boolean = false;
+  
+  appLoading(){ 
     // this.isLoading$.next(true);
     this.isLoading$ = true;
   }

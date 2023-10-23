@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SelectDaysDialogComponent } from 'src/app/dialogs/select-days-dialog/select-days-dialog.component';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -14,24 +15,21 @@ import { Observable } from 'rxjs';
 export class HomeComponent {
 
   baseImageURL = "assets/"
-  todaysRoutine: any = {}
-  myRoutines?: Observable<any>;
 
-  constructor(private api: ApiService, public router: Router, public dialog: MatDialog) { }
+  constructor(private api: ApiService, public router: Router, public dialog: MatDialog, public dataService: DataService) { }
 
   ngOnInit() {
-    this.myRoutines = this.api.myRoutines$
-    this.api.getRoutines();
-    this.getTodaysRoutine();
-  }
 
-  ngOnDestroy() {
-    this.api.myRoutines = [];
+
+    setTimeout(() => {
+        this.api.getAllRoutines();
+        this.getTodaysRoutine();      
+    }, 0);
+
   }
 
   async getTodaysRoutine() {
-    this.todaysRoutine = await this.api.getTodaysRoutine()
-    console.log(this.todaysRoutine);
+    this.api.getTodaysRoutine()
   }
 
   async createNewRoutine(daysRoutine: string[]) {
@@ -40,14 +38,8 @@ export class HomeComponent {
 
   viewRoutine(routine: any) {
 
-    let viewOfMyRoutine;
+    this.router.navigateByUrl(`routine/${routine.name}`);
 
-    for (let rt of this.api.myRoutines) {
-      if (rt.name == routine.name) {
-        viewOfMyRoutine = rt;
-      }
-    }
-    this.router.navigateByUrl(`routine/${routine.name}`, { state: { rutine: viewOfMyRoutine } });
   }
 
   openDialog(): void {
@@ -62,5 +54,5 @@ export class HomeComponent {
       }
     });
   }
-  
+
 }

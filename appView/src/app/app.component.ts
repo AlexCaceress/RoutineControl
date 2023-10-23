@@ -13,6 +13,4 @@ export class AppComponent {
   title = 'appView';
   constructor(public loadingService: LoadingService, public cd: ChangeDetectorRef) { }
 
-  
-
 }
