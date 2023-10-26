@@ -15,32 +15,33 @@ import { DataService } from 'src/app/services/data.service';
 export class HomeComponent {
 
   baseImageURL = "assets/"
+  todaysRoutine: any = {};
 
   constructor(private api: ApiService, public router: Router, public dialog: MatDialog, public dataService: DataService) { }
 
+
   ngOnInit() {
-
-
-    setTimeout(() => {
-        this.api.getAllRoutines();
-        this.getTodaysRoutine();      
-    }, 0);
-
+    this.getTodaysRoutine();
   }
 
   async getTodaysRoutine() {
-    this.api.getTodaysRoutine()
+    this.todaysRoutine = await this.api.getTodaysRoutine();
   }
 
-  async createNewRoutine(daysRoutine: string[]) {
-    this.api.createNewRoutine(daysRoutine);
+  createNewRoutine(daysRoutine: string[]) {
+
+    this.api.createNewRoutine(daysRoutine).then((res) => {
+      this.dataService.appendRoutine(res);
+    });
+
   }
 
   viewRoutine(routine: any) {
-
     this.router.navigateByUrl(`routine/${routine.name}`);
-
   }
+
+
+  //DIALOGS
 
   openDialog(): void {
     const dialogRef = this.dialog.open(SelectDaysDialogComponent, {

@@ -1,49 +1,37 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { LoadingService } from './loading.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  public allRoutines: any = new Array();
-  public allRoutines$: BehaviorSubject<any>;
-  public todaysRoutine : any = {};
+  public dataList : any = [];
+  private myRoutines$ = new BehaviorSubject<any>(this.dataList);
+  public myRoutines = this.myRoutines$.asObservable();
 
-  constructor(public loadingService : LoadingService) {
-    this.allRoutines$ = new BehaviorSubject<any>(this.allRoutines);
-  }
+  constructor(public loadingService: LoadingService, public api: ApiService) { 
 
-  setRoutine(routine : any){
-    this.allRoutines.push(routine);
-    this.allRoutines$.next(this.allRoutines);
-    this.loadingService.appFinishLoading();
-  }
-
-  setAllRoutines(routines : any){
-    
-    for(let routine of routines){
-      this.allRoutines.push(routine);
-    }
-
-    this.allRoutines$.next(this.allRoutines);
-    this.loadingService.appFinishLoading()
-  }
-
-
-  viewSingleRoutine(name : string){
-    
-    let singleRoutine;
-
-    for (let rt of this.allRoutines) {
-      if (rt.name == name) {
-        singleRoutine = rt;
-      }
-    }
-
-    return singleRoutine;
-
+    this.api.getAllRoutines().then((res) => {
+      this.fetchData(res);
+    })
 
   }
+
+  fetchData(allRoutines : any) {
+    this.dataList = allRoutines;
+    this.myRoutines$.next(this.dataList);
+  }
+
+  appendRoutine(routine : any) {
+    this.dataList.push(routine);
+    this.myRoutines$.next(this.dataList);
+  }
+
+  getData() : Observable<any>{
+    return this.myRoutines;
+  }
+
 }

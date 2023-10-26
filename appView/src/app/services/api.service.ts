@@ -11,43 +11,27 @@ export class ApiService {
 
   baseURL = "http://localhost:5000/"
 
-  constructor(private http: HttpClient, public loadingService: LoadingService, public dataService: DataService) {
-  }
+  constructor(private http: HttpClient, public loadingService: LoadingService) { }
 
-  makeRequest(rute: string, type: string, params: any): any {
-
-    this.loadingService.appLoading()
-
-    if (type == "POST") {
-
-      this.http.post(this.baseURL + rute, params).subscribe((res) => {
-        this.dataService.setRoutine(res);
-      })
-
-    }
-    else if (type == "GET") {
-
-      this.http.get(this.baseURL + rute).subscribe({
-        next: (res) => {
-          this.dataService.setRoutine(res);
-        },
-      });
-
-    }
-  }
 
   getAllRoutines() {
 
-    this.loadingService.appLoading()
-    this.http.get(this.baseURL + "getRoutines/").subscribe(
-      (res) => {
-        this.dataService.setAllRoutines(res);
-      },
-    );
+    return new Promise((resolv, reject) => {
+      this.http.get(this.baseURL + "getRoutines/").subscribe((res) => {
+        resolv(res);
+      });
+    });
+
   }
 
-  createNewRoutine(daysRoutine: string[]) {
-    this.makeRequest("createRoutine/", "POST", { days: daysRoutine });
+  createNewRoutine(newRoutine: string[]) {
+
+    return new Promise((resolv, reject) => {
+      this.http.post(this.baseURL + "createRoutine/", newRoutine).subscribe((res) => {
+        resolv(res);
+      })
+    })
+
   }
 
   viewMyRoutine(nameRoutine: string) {
@@ -59,6 +43,7 @@ export class ApiService {
         }
       })
     })
+
   }
 
   addExerciceDay(day: string, dataExercice: string, nameRoutine: string) {
