@@ -24,8 +24,8 @@ export class ApiService {
 
   }
 
-  createNewRoutine(newRoutine: string[]) {
-
+  createNewRoutine(newRoutine: object) {
+    
     return new Promise((resolv, reject) => {
       this.http.post(this.baseURL + "createRoutine/", newRoutine).subscribe((res) => {
         resolv(res);

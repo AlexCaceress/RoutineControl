@@ -8,7 +8,7 @@ import { ApiService } from './api.service';
 })
 export class DataService {
 
-  public dataList : any = [];
+  public dataList : any = null;
   private myRoutines$ = new BehaviorSubject<any>(this.dataList);
   public myRoutines = this.myRoutines$.asObservable();
 
@@ -17,6 +17,7 @@ export class DataService {
     this.api.getAllRoutines().then((res) => {
       this.fetchData(res);
     })
+
 
   }
 

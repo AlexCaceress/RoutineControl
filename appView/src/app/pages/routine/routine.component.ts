@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -15,7 +15,7 @@ import { DataService } from 'src/app/services/data.service';
 export class RoutineComponent implements OnInit, OnDestroy{
 
   public daysArray: any = []
-  public singleRoutine: any = {};
+  public singleRoutine: any = {photo : ""};
   public nameRoutine: string = "";
   private dataSubscriptor : Subscription = new Subscription;
   baseImageURL = "assets/"
@@ -26,16 +26,18 @@ export class RoutineComponent implements OnInit, OnDestroy{
 
     this.nameRoutine = this.route.snapshot.params['routineID']
 
-    this.dataSubscriptor = this.dataService.getData().subscribe((res) => {
-
-      if(res.length === 0){
-        this.getRoutine();
+    this.dataSubscriptor = this.dataService.myRoutines.subscribe((res) => {
+      if(res !== null){
+        
+        if(res.length === 0){
+          this.getRoutine();
+        }
+        else{
+          this.configureRoutine(res);
+        }
       }
-      else{
-        this.configureRoutine(res);
-      }
-
     });
+
   }
 
   ngOnDestroy(){
@@ -54,15 +56,23 @@ export class RoutineComponent implements OnInit, OnDestroy{
 
   }
 
-  configureRoutine(newRoutine: any) {
+  configureRoutine(allRoutines: any) {
 
-    this.singleRoutine = newRoutine;
     this.daysArray = [];
 
-      
+    for(let i of allRoutines){
+      if(i.name == this.nameRoutine){
+        this.singleRoutine = i;
+      }
+    }
 
-    for (let [key, value] of Object.entries(newRoutine.days)) {
-      this.daysArray.push(value);
+
+    if(Object.keys(this.singleRoutine).length !== 0){
+      for (let [key, value] of Object.entries(this.singleRoutine.days)) {
+        this.daysArray.push(value);
+      }
+    }else{
+      this.router.navigate([""])
     }
 
   }

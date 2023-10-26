@@ -29,8 +29,8 @@ export class HomeComponent {
   }
 
   createNewRoutine(daysRoutine: string[]) {
-
-    this.api.createNewRoutine(daysRoutine).then((res) => {
+    
+    this.api.createNewRoutine({"days" : daysRoutine}).then((res) => {
       this.dataService.appendRoutine(res);
     });
 
