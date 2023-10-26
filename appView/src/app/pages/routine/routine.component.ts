@@ -66,7 +66,6 @@ export class RoutineComponent implements OnInit, OnDestroy{
       }
     }
 
-
     if(Object.keys(this.singleRoutine).length !== 0){
       for (let [key, value] of Object.entries(this.singleRoutine.days)) {
         this.daysArray.push(value);
@@ -78,14 +77,21 @@ export class RoutineComponent implements OnInit, OnDestroy{
   }
 
   async updateListDaysExercice(nameDay: any, data: any) {
-    let updatedRoutine = await this.api.addExerciceDay(nameDay, data, this.singleRoutine.name);
-    this.configureRoutine(updatedRoutine)
-
+    this.singleRoutine = await this.api.addExerciceDay(nameDay, data, this.singleRoutine.name);
+    
+    for (let [key, value] of Object.entries(this.singleRoutine.days)) {
+      this.daysArray.push(value);
+    }
+    
   }
 
   async updateConfigRoutine(newConfigRoutine: any) {
-    let updatedRoutine = await this.api.changeConfigRoutine(this.singleRoutine.name, newConfigRoutine);
-    this.configureRoutine(updatedRoutine)
+    this.singleRoutine = await this.api.changeConfigRoutine(this.singleRoutine.name, newConfigRoutine);
+
+    for (let [key, value] of Object.entries(this.singleRoutine.days)) {
+      this.daysArray.push(value);
+    }
+
   }
 
   viewDayConfig(dayRoutine: any, event: Event) {
