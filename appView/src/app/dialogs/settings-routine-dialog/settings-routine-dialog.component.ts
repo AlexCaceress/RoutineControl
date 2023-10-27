@@ -26,7 +26,6 @@ export class SettingsRoutineDialogComponent {
 
   sendInfo(){
     let data = {"nameRoutine" : this.nameRoutine, "descritpionRoutine" : this.descritpionRoutine, "imageRoutine" : this.backgroundImage, "activateRoutine" : this.activateRoutine}
-    console.log(data);
     this.dialogRef.close(data);
   }
 

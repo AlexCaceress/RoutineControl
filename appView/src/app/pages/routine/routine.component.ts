@@ -76,12 +76,14 @@ export class RoutineComponent implements OnInit, OnDestroy{
 
   }
 
-  async updateListDaysExercice(nameDay: any, data: any) {
-    this.singleRoutine = await this.api.addExerciceDay(nameDay, data, this.singleRoutine.name);
+  updateListDaysExercice(nameDay: any, data: any) {
+    // let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.singleRoutine.name);
     
-    for (let [key, value] of Object.entries(this.singleRoutine.days)) {
-      this.daysArray.push(value);
-    }
+    this.dataService.addExerciceRoutine(nameDay, data, this.singleRoutine.name);
+
+    // for (let [key, value] of Object.entries(this.singleRoutine.days)) {
+    //   this.daysArray.push(value);
+    // }
     
   }
 
