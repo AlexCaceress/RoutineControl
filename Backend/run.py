@@ -3,10 +3,7 @@ import json
 import Routines
 from flask import request
 from datetime import date
-import calendar
 from datetime import datetime
-
-
 
 app = Flask(__name__)  
 
@@ -22,7 +19,7 @@ bddImagesFile.close()
 
 if(bddPhotos["images"]):
     for i in bddPhotos["images"]:
-        data[i["nameRoutine"]]["photo"] = i["photo"]
+        data[i["id"]]["photo"] = i["photo"]
 
 
 @app.after_request
@@ -43,14 +40,16 @@ def createRoutine():
     
     defaultNameRoutine = "Rutina" + str(len(data) + 1)
     today = date.today().strftime("%d/%m/%Y")
+    idRoutine = "rt{}".format(str(len(data) + 1))
+
     daysObject = {}
 
     for i in daysRoutine:
         daysObject[i] = {"day": i, "data": []}
 
-    newRoutine = Routines.Routine(defaultNameRoutine, daysObject, today)
+    newRoutine = Routines.Routine(defaultNameRoutine, idRoutine, daysObject, today)
     objectRoutine = newRoutine.createNewRoutine()
-    data[objectRoutine["name"]] = objectRoutine
+    data[objectRoutine["id"]] = objectRoutine
     
     return objectRoutine
 
@@ -59,36 +58,34 @@ def createRoutine():
 def modifyRoutine():
     
     json = request.json    
-    nameRoutine = json.get("nameRoutine")
+    idRoutine = json.get("idRoutine")
     day = json.get("day")
     reps = json.get("dataExercice")["reps"]
     sets = json.get("dataExercice")["sets"]
     nameExercice = json.get("dataExercice")["nameExercice"]
 
-    data[nameRoutine]["days"][day]["data"].append({"nameExercice" : nameExercice, "sets" : sets, "reps" : reps})
+    data[idRoutine]["days"][day]["data"].append({"nameExercice" : nameExercice, "sets" : sets, "reps" : reps})
         
-    return data[nameRoutine]
+    return data[idRoutine]
 
 @app.route("/changeConfigRoutine/", methods=["POST", "GET"])
 def changeConfig():
 
     json = request.json
-    oldNameRoutine = json.get("nameRoutine")
+    idRoutine = json.get("idRoutine")
     newConfigRoutine = json.get("newConfigRoutine")
     
-    data[oldNameRoutine]["name"] = newConfigRoutine["nameRoutine"]
-    data[oldNameRoutine]["description"] = newConfigRoutine["descritpionRoutine"]
-    data[oldNameRoutine]["photo"] = newConfigRoutine["imageRoutine"]
+    data[idRoutine]["name"] = newConfigRoutine["nameRoutine"]
+    data[idRoutine]["description"] = newConfigRoutine["descritpionRoutine"]
+    data[idRoutine]["photo"] = newConfigRoutine["imageRoutine"]
 
     if(newConfigRoutine["activateRoutine"] == True):
         for i in data.keys():
             data[i]["activeRoutine"] = False
 
-    data[oldNameRoutine]["activeRoutine"] = newConfigRoutine["activateRoutine"]
+    data[idRoutine]["activeRoutine"] = newConfigRoutine["activateRoutine"]
     
-    data[newConfigRoutine["nameRoutine"]] = data.pop(oldNameRoutine, None)
-
-    return data[newConfigRoutine["nameRoutine"]]
+    return data[idRoutine]
     
 
 @app.route("/getRoutines/")
@@ -110,7 +107,7 @@ def getTodaysRoutine():
     for i in data.values():
         if(i["activeRoutine"] == True):
                 try:
-                    return {"dayRoutine" : data[i["name"]]["days"][todayName]["data"], "dayName" : todayName, "chillday" : False} 
+                    return {"dayRoutine" : data[i["id"]]["days"][todayName]["data"], "dayName" : todayName, "chillday" : False} 
                 except:
                     print("No hi ha cap dia")
 
@@ -118,11 +115,11 @@ def getTodaysRoutine():
     
 
 
-@app.route("/routine/<nameRoutine>/", methods=['GET'])
-def getMyRoutine(nameRoutine):
+@app.route("/routine/<idRoutine>/", methods=['GET'])
+def getMyRoutine(idRoutine):
 
     try:
-         return data[nameRoutine]
+         return data[idRoutine]
     except:
         return {}
 
@@ -134,8 +131,8 @@ def dumpJSON():
 
     for i in data.values():
         if(i["photo"] != ""):
-            bddPhotosAdd["images"].append({"nameRoutine" : i["name"], "photo" : i["photo"]})
-            data[i["name"]]["photo"] = ""
+            bddPhotosAdd["images"].append({"id" : i["id"], "photo" : i["photo"]})
+            data[i["id"]]["photo"] = ""
 
     nFile1 = open("bdd.json", "w")
     nFile1.write(json.dumps(data))

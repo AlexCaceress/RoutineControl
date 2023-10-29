@@ -12,94 +12,65 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './routine.component.html',
   styleUrls: ['./routine.component.scss']
 })
-export class RoutineComponent implements OnInit, OnDestroy{
+export class RoutineComponent implements OnInit, OnDestroy {
 
   public daysArray: any = []
-  public singleRoutine: any = {photo : ""};
-  public nameRoutine: string = "";
-  private dataSubscriptor : Subscription = new Subscription;
+  public singleRoutine: any = { photo: "" };
+  public idRoutine: string = "";
+  private dataSubscriptor: Subscription = new Subscription;
   baseImageURL = "assets/"
 
-  constructor(private api: ApiService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute, public dataService: DataService) {}
+  constructor(private api: ApiService, private router: Router, public dialog: MatDialog, private route: ActivatedRoute, public dataService: DataService) { }
 
   ngOnInit() {
 
-    this.nameRoutine = this.route.snapshot.params['routineID']
+    this.idRoutine = this.route.snapshot.params['routineID']
 
     this.dataSubscriptor = this.dataService.myRoutines.subscribe((res) => {
-      if(res !== null){
-        
-        if(res.length === 0){
-          this.getRoutine();
-        }
-        else{
-          this.configureRoutine(res);
-        }
+      if (res !== null) {
+        this.configureRoutine(res);
       }
     });
 
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.dataSubscriptor.unsubscribe();
-  }
-
-  async getRoutine() {
-    
-    this.singleRoutine = await this.api.viewMyRoutine(this.nameRoutine);
-
-    if(Object.keys(this.singleRoutine).length === 0){
-      this.router.navigate([""])
-    }else{
-      this.configureRoutine(this.singleRoutine);
-    }
-
   }
 
   configureRoutine(allRoutines: any) {
 
+    this.singleRoutine = {}
     this.daysArray = [];
 
-    for(let i of allRoutines){
-      if(i.name == this.nameRoutine){
+    for (let i of allRoutines) {
+      if (i.id == this.idRoutine) {
         this.singleRoutine = i;
       }
     }
 
-    if(Object.keys(this.singleRoutine).length !== 0){
+    if (Object.keys(this.singleRoutine).length !== 0) {
       for (let [key, value] of Object.entries(this.singleRoutine.days)) {
         this.daysArray.push(value);
       }
-    }else{
+    } else {
       this.router.navigate([""])
     }
 
   }
 
   updateListDaysExercice(nameDay: any, data: any) {
-    // let updateRoutine = await this.api.addExerciceDay(nameDay, data, this.singleRoutine.name);
-    
-    this.dataService.addExerciceRoutine(nameDay, data, this.singleRoutine.name);
-
-    // for (let [key, value] of Object.entries(this.singleRoutine.days)) {
-    //   this.daysArray.push(value);
-    // }
-    
+    this.dataService.addExerciceRoutine(nameDay, data, this.singleRoutine.id);
   }
 
-  async updateConfigRoutine(newConfigRoutine: any) {
-    this.singleRoutine = await this.api.changeConfigRoutine(this.singleRoutine.name, newConfigRoutine);
-
-    for (let [key, value] of Object.entries(this.singleRoutine.days)) {
-      this.daysArray.push(value);
-    }
-
+  updateConfigRoutine(newConfigRoutine: any) {
+    this.dataService.changeConfigRoutine(this.singleRoutine.id, newConfigRoutine);
   }
 
   viewDayConfig(dayRoutine: any, event: Event) {
 
     if ((event.target as HTMLElement).className !== "addExercice") {
-      this.router.navigate(['./config'], {relativeTo: this.route});
+      this.router.navigate(['./config'], { relativeTo: this.route });
     }
 
   }

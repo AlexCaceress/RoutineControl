@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 import { SubRouteTestPageComponent } from './pages/sub-route-test-page/sub-route-test-page.component';
 import { DayRoutineSettingsComponent } from './pages/day-routine-settings/day-routine-settings.component';
 import { SettingsRoutineDialogComponent } from './dialogs/settings-routine-dialog/settings-routine-dialog.component'
+import {CdkDrag} from '@angular/cdk/drag-drop';
 
 
 
@@ -43,6 +44,7 @@ import { SettingsRoutineDialogComponent } from './dialogs/settings-routine-dialo
     MatButtonModule,
     MatDialogModule,
     FormsModule,
+    CdkDrag,
 
   ],
   providers: [],

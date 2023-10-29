@@ -1,7 +1,8 @@
 class Routine:
 
-  def __init__(self, name = "", days = {}, dateCreateRoutine = ""):
+  def __init__(self, name = "", id="", days = {}, dateCreateRoutine = ""):
     self.name = name
+    self.id = id;
     self.days = days
     self.description = ""
     self.photo = ""
@@ -11,7 +12,8 @@ class Routine:
 
   def createNewRoutine(self):
     myRoutine = {
-        "name" : self.name,          
+        "name" : self.name, 
+        "id" : self.id,         
         "days" : self.days, 
         "description" : self.description, 
         "photo" : self.photo, 

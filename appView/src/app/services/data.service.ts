@@ -16,6 +16,7 @@ export class DataService {
 
     this.api.getAllRoutines().then((res) => {
       this.fetchData(res);
+
     })
 
   }
@@ -32,7 +33,7 @@ export class DataService {
 
   updateRoutine(updatedRoutine: any) {
     for (let i = 0; i < this.dataList.length; i++) {
-      if (this.dataList[i].name == updatedRoutine.name) {
+      if (this.dataList[i].id == updatedRoutine.id) {
         this.dataList[i] = updatedRoutine;
       }
     }
@@ -40,22 +41,29 @@ export class DataService {
     this.myRoutines$.next(this.dataList);
   }
 
-  async addExerciceRoutine(nameDay: string, data: any, routineName: any) {
+  async addExerciceRoutine(nameDay: string, data: any, idRoutine: any) {
 
-    let updatedRoutine = await this.api.addExerciceDay(nameDay, data, routineName);
+    let updatedRoutine = await this.api.addExerciceDay(nameDay, data, idRoutine);
     this.updateRoutine(updatedRoutine);
 
   }
 
-  async changeConfigRoutine(nameRoutine: any, newConfigRoutine: any) {
+  async changeConfigRoutine(idRoutine: any, newConfigRoutine: any) {
 
-    let updatedRoutine = await this.api.changeConfigRoutine(nameRoutine, newConfigRoutine);
-    this.updateRoutine(updatedRoutine);
+    let updatedRoutine: any = await this.api.changeConfigRoutine(idRoutine, newConfigRoutine);
+
+    if (updatedRoutine.activeRoutine) {
+      for (let i = 0; i < this.dataList.length; i++) {
+          this.dataList[i].activeRoutine = false;
+        }
+    }
+
+      this.updateRoutine(updatedRoutine);
+
+    }
+
+    getData(): Observable < any > {
+      return this.myRoutines;
+    }
 
   }
-
-  getData(): Observable<any> {
-    return this.myRoutines;
-  }
-
-}

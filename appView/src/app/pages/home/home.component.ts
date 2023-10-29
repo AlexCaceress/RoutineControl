@@ -37,7 +37,7 @@ export class HomeComponent {
   }
 
   viewRoutine(routine: any) {
-    this.router.navigateByUrl(`routine/${routine.name}`);
+    this.router.navigateByUrl(`routine/${routine.id}`);
   }
 
 
