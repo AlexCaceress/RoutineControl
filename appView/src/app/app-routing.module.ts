@@ -11,7 +11,7 @@ const routes: Routes = [
 
   { path: 'routine/:routineID', children : [
     {path : "", component : RoutineComponent},
-    {path : "config", component : DayRoutineSettingsComponent}
+    {path : "config/:day", component : DayRoutineSettingsComponent}
   ]},
   
   { path: 'test/:testID', children : [

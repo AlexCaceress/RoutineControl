@@ -70,7 +70,15 @@ export class RoutineComponent implements OnInit, OnDestroy {
   viewDayConfig(dayRoutine: any, event: Event) {
 
     if ((event.target as HTMLElement).className !== "addExercice") {
-      this.router.navigate(['./config'], { relativeTo: this.route });
+
+      this.router.navigate([`./config/${dayRoutine.day}`], {
+        relativeTo: this.route,
+        state: {
+          name: this.route.snapshot.params['testID'],
+          params: dayRoutine,
+        },
+      });
+
     }
 
   }

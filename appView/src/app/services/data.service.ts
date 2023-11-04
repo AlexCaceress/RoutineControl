@@ -16,8 +16,7 @@ export class DataService {
 
     this.api.getAllRoutines().then((res) => {
       this.fetchData(res);
-
-    })
+    });
 
   }
 
